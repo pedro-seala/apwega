@@ -1,0 +1,38 @@
+<?php
+
+namespace Database\Seeders;
+
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\SubjectCategory;
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        \App\Models\User::factory()->create([
+            'name' => 'Edmilson',
+            'email' => '4an1onio@gmail.com',
+            'password' => bcrypt('1123581321')
+        ]);
+
+        $this->call([
+            MonthSeeder::class,
+            SchoolClassSeeder::class,
+            QuarterSeeder::class,
+            SchoolSeeder::class,
+            SchoolYearSeeder::class,
+            SchoolSubjectSeeder::class,
+            SubjectCategorySeeder::class,
+            CourseSeeder::class,
+            SchoolPlanSeeder::class,
+            BankSeeder::class,
+            PaymentDescriptionSeeder::class,
+            SealNoteSeeder::class,
+            PriceSeeder::class,
+        ]);
+    }
+}
