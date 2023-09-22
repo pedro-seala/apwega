@@ -1,6 +1,6 @@
 # Emphasis
 
-## School Managment System
+## School Management System
 
 This is a prototype school management system
 
