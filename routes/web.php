@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FinePercentageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Resources group
 
 Route::resources(
     [
@@ -40,10 +42,15 @@ Route::resources(
         'banks'                 => App\Http\Controllers\BankController::class,
         'payment-descriptions'  => App\Http\Controllers\PaymentDescriptionController::class,
         'seal-notes'            => App\Http\Controllers\SealNoteController::class,
-        'prices'                => App\Http\Controllers\PriceController::class
-
+        'prices'                => App\Http\Controllers\PriceController::class,
     ],
 );
+
+// Resources
+
+Route::resource('fine-percentage', FinePercentageController::class, ['only' => ['index', 'store', 'update']]);
+
+// Common routes
 
 Route::post('school-plans/get', [App\Http\Controllers\SchoolPlanController::class, 'get'])
     ->name('school-plans.get');
