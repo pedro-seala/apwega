@@ -7,7 +7,7 @@
                 {{ __('School') }}
             </h1>
 
-            <x-table.edit-btn :href="route('schools.edit', $school)" />
+            <x-add-btn :href="route('schools.edit', $school)" />
         </x-slot>
 
         <x-slot name="content">

@@ -11,11 +11,15 @@
     @keydown.escape="toggleModal">
 
     {{-- Trigger for Modal --}}
-    <button class="p-1 text-xs font-semibold text-white uppercase bg-red-600 rounded-md focus:ring-2 focus:ring-red-600 focus:ring-offset-2 hover:bg-red-700 hover:text-red-50"
-    type="button" @click="toggleModal">
+    <button class="p-1 text-xs font-semibold
+                text-white uppercase bg-red-600 rounded-md
+                focus:ring-2 focus:ring-red-600 focus:ring-offset-2
+                hover:bg-red-700 hover:text-red-50"
+
+        type="button" @click="toggleModal">
 
         <i class="fa-solid fa-trash"></i>
-        <span class="ms-1">{{ __('Delete') }}</span>
+        {{ __('Delete') }}
     </button>
 
     {{-- Modal --}}

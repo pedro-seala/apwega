@@ -7,9 +7,7 @@
                 <span>{{ __('Payment description') }}</span>
             </h1>
 
-            <x-table.edit-btn :add="true"
-                :href="route('payment-descriptions.create')" />
-
+            <x-add-btn :href="route('payment-descriptions.create')" />
         </x-slot>
 
         <x-slot name="content">

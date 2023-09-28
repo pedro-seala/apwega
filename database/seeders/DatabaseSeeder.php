@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             PaymentDescriptionSeeder::class,
             SealNoteSeeder::class,
             PriceSeeder::class,
+            FinePercentageSeeder::class
         ]);
     }
 }

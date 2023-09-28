@@ -7,14 +7,13 @@
                 <span>{{ __('Price table') }}</span>
             </h1>
 
-            <x-table.edit-btn :add="true"
-                :href="route('prices.create', ['entity' => $entity])" />
-
+            <x-add-btn :href="route('prices.create', ['entity' => $entity])" />
         </x-slot>
 
         <x-slot name="content">
             @if ($prices->count() > 0)
-                <x-table.default caption="Tabela de preços">
+                <x-table.default
+                    caption="Tabela de preços para {{ $_REQUEST['entity'] ? 'funcionários' : 'alunos' }}">
 
                     <x-slot name="thead">
                         <tr>
