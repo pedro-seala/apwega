@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('banks', function (Blueprint $table) {
             $table->id();
             $table->string('name', 64);
-            $table->string('abbreviation', 8)->nullable();
+            $table->string('abbreviation', 16)->nullable();
             $table->string('account_number', 32)->nullable();
             $table->string('iban', 64)->nullable();
         });

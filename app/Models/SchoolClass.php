@@ -30,4 +30,14 @@ class SchoolClass extends Model
     {
         return $this->hasMany(Price::class, 'class_id');
     }
+
+
+    /**
+     * Get a correspondig last month of payment
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function last_month_payment(): HasMany
+    {
+        return $this->hasMany(LastMonthPayment::class, 'school_class_id');
+    }
 }

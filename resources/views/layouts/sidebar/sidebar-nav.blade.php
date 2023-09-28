@@ -247,6 +247,11 @@
                             <i class="fa-solid fa-circle-dollar-to-slot"></i>
                             {{ __('Payment limit') }}
                         </x-sidebar.dropdown-link>
+
+                        <x-sidebar.dropdown-link href="{{ route('last-month-payment.index') }}">
+                            <i class="fa-solid fa-filter-circle-dollar"></i>
+                            {{ __('Last month of payment') }}
+                        </x-sidebar.dropdown-link>
                     </x-slot>
 
                 </x-sidebar.dropdown>

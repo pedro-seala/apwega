@@ -59,6 +59,12 @@ Route::resource(
     ['only' => ['index', 'store', 'update']]
 );
 
+Route::resource(
+    'last-month-payment',
+    \App\Http\Controllers\LastMonthPaymentController::class,
+    ['only' => ['index', 'edit', 'update']]
+);
+
 // Common routes
 
 Route::post(
