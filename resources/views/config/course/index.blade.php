@@ -8,9 +8,7 @@
                     <span>{{ __('Course') }}</span>
                 </h1>
 
-                <x-table.edit-btn :add="true"
-                    :href="route('courses.create')" />
-
+                <x-add-btn :href="route('courses.create')" />
             </div>
         </x-slot>
 

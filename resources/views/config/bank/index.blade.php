@@ -7,9 +7,7 @@
                 <span>{{ __('Bank') }}</span>
             </h1>
 
-            <x-table.edit-btn :add="true"
-                :href="route('banks.create')" />
-
+            <x-add-btn :href="route('banks.create')" />
         </x-slot>
 
         <x-slot name="content">

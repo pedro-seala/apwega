@@ -7,9 +7,7 @@
                 <span>{{ __('Seal note') }}</span>
             </h1>
 
-            <x-table.edit-btn :add="true"
-                :href="route('seal-notes.create')" />
-
+            <x-add-btn :href="route('seal-notes.create')" />
         </x-slot>
 
         <x-slot name="content">

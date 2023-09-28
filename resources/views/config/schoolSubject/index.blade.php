@@ -7,8 +7,7 @@
                 <span>{{ __('Subject') }}</span>
             </h1>
 
-            <x-table.edit-btn :add="true"
-                :href="route('school-subjects.create')" />
+            <x-add-btn :href="route('school-subjects.create')" />
         </x-slot>
 
         <x-slot name="content">
