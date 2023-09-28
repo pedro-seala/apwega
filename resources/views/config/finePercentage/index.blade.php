@@ -12,12 +12,16 @@
 
         <x-slot name="content">
             @if ($finePercentage->count())
-                <form action="{{ route('fine-percentage.update', $finePercentage) }}" method="post">
+                <form action="{{ route('fine-percentage.update', $finePercentage) }}"
+                    method="post" autocomplete="off">
+
                     @method('patch')
                     @include('config.finePercentage.partials.form', ['finePercentage' => $finePercentage])
                 </form>
             @else
-                <form action="{{ route('fine-percentage.store') }}" method="post">
+                <form action="{{ route('fine-percentage.store') }}"
+                    method="post" autocomplete="off">
+
                     @include('config.finePercentage.partials.form')
                 </form>
             @endif

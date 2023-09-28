@@ -7,7 +7,7 @@
         </x-input-label>
 
         <x-text-input name="percentage" class="font-bold text-stone-400" id="percentage"
-            value="{{ $finePercentage->percentage ?? '0.00' }}" />
+            value="{{ $finePercentage->percentage ?? '0.00' }}" required />
     </div>
 
     <div class="inline-flex items-end">
