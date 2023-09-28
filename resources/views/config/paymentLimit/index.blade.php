@@ -4,25 +4,25 @@
         <x-slot name="header">
             <div class="flex justify-between">
                 <h1 class="h1">
-                    <i class="fa-solid fa-percent"></i>
-                    <span>{{ __('Fine percentage') }}</span>
+                    <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                    <span>{{ __('Payment limit') }}</span>
                 </h1>
             </div>
         </x-slot>
 
         <x-slot name="content">
-            @if ($finePercentage)
-                <form action="{{ route('fine-percentage.update', $finePercentage) }}"
+            @if ($paymentLimit)
+                <form action="{{ route('payment-limit.update', $paymentLimit) }}"
                     method="post" autocomplete="off">
 
                     @method('patch')
-                    @include('config.finePercentage.partials.form', ['finePercentage' => $finePercentage])
+                    @include('config.paymentLimit.partials.form', ['paymentLimit' => $paymentLimit])
                 </form>
             @else
-                <form action="{{ route('fine-percentage.store') }}"
+                <form action="{{ route('payment-limit.store') }}"
                     method="post" autocomplete="off">
 
-                    @include('config.finePercentage.partials.form')
+                    @include('config.paymentLimit.partials.form')
                 </form>
             @endif
         </x-slot>

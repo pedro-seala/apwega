@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Month;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FinePercentage extends Model
+class PaymentLimit extends Model
 {
     use HasFactory;
 
@@ -17,7 +19,7 @@ class FinePercentage extends Model
      * Get a first and unique row in this model
      * @return \App\Models\FinePercentage|null
      */
-    public static function fine_percentage(): self|null
+    public static function payment_limit(): self|null
     {
         return self::all()->first();
     }
@@ -33,7 +35,7 @@ class FinePercentage extends Model
         if (self::create($request->all())) {
             return [
                 'status' => true,
-                'message' => 'Percentagem registada',
+                'message' => 'Limite registado',
                 'type' => 'success'
             ];
         } else {
@@ -56,7 +58,7 @@ class FinePercentage extends Model
         if ($this->update(attributes: $request->all())) {
             return [
                 'status' => true,
-                'message' => 'Percentagem actualizada',
+                'message' => 'Limite actualizado',
                 'type' => 'success'
             ];
         } else {

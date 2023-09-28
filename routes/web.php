@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\FinePercentageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Route;
@@ -48,11 +47,23 @@ Route::resources(
 
 // Resources
 
-Route::resource('fine-percentage', FinePercentageController::class, ['only' => ['index', 'store', 'update']]);
+Route::resource(
+    'fine-percentage',
+    \App\Http\Controllers\FinePercentageController::class,
+    ['only' => ['index', 'store', 'update']]
+);
+
+Route::resource(
+    'payment-limit',
+    \App\Http\Controllers\PaymentLimitController::class,
+    ['only' => ['index', 'store', 'update']]
+);
 
 // Common routes
 
-Route::post('school-plans/get', [App\Http\Controllers\SchoolPlanController::class, 'get'])
-    ->name('school-plans.get');
+Route::post(
+    'school-plans/get',
+    [App\Http\Controllers\SchoolPlanController::class, 'get']
+)->name('school-plans.get');
 
 require __DIR__ . '/auth.php';

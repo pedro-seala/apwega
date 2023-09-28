@@ -242,6 +242,11 @@
                             <i class="fa-solid fa-percent"></i>
                             {{ __('Fine percentage') }}
                         </x-sidebar.dropdown-link>
+
+                        <x-sidebar.dropdown-link href="{{ route('payment-limit.index') }}">
+                            <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                            {{ __('Payment limit') }}
+                        </x-sidebar.dropdown-link>
                     </x-slot>
 
                 </x-sidebar.dropdown>
