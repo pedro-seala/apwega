@@ -237,6 +237,11 @@
                             <i class="fa-solid fa-money-bills"></i>
                             {{ __('Price table') }} - Funcionários
                         </x-sidebar.dropdown-link>
+
+                        <x-sidebar.dropdown-link href="{{ route('fine-percentage.index') }}">
+                            <i class="fa-solid fa-percent"></i>
+                            {{ __('Fine percentage') }}
+                        </x-sidebar.dropdown-link>
                     </x-slot>
 
                 </x-sidebar.dropdown>
