@@ -20,4 +20,14 @@ class Month extends Model
     {
         return $this->hasMany(SealNote::class);
     }
+
+
+    /**
+     * Get correspondig month
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function last_month_payment(): HasMany
+    {
+        return $this->hasMany(LastMonthPayment::class);
+    }
 }
