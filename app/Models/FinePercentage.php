@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,9 +15,9 @@ class FinePercentage extends Model
 
     /**
      * Get a first and unique row in this model
-     * @return \App\Models\FinePercentage
+     * @return \App\Models\FinePercentage|null
      */
-    public static function fine_percentage(): self
+    public static function fine_percentage(): self|null
     {
         return self::all()->first();
     }

@@ -11,7 +11,7 @@
         </x-slot>
 
         <x-slot name="content">
-            @if ($finePercentage->count())
+            @if ($finePercentage)
                 <form action="{{ route('fine-percentage.update', $finePercentage) }}"
                     method="post" autocomplete="off">
 
