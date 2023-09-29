@@ -9,9 +9,16 @@ use Illuminate\View\View;
 
 class SchoolPlanController extends Controller
 {
+    /**
+     * New instance of school plan
+     * @var \App\Models\SchoolPlan
+     */
+    protected $model;
+
     public function __construct()
     {
         $this->middleware("auth");
+        $this->model = new SchoolPlan;
     }
 
     /**
@@ -20,10 +27,7 @@ class SchoolPlanController extends Controller
      */
     public function index(): View
     {
-        return view('config.schoolPlan.index', [
-            'courses' => SchoolPlan::courses(),
-            'classes' => SchoolPlan::classes()
-        ]);
+        return view('config.schoolPlan.index', ['model' => $this->model]);
     }
 
     /**
@@ -32,14 +36,7 @@ class SchoolPlanController extends Controller
      */
     public function create(): View
     {
-        return view('config.schoolPlan.create', [
-
-            'courses' => SchoolPlan::courses(),
-            'classes' => SchoolPlan::classes(),
-            'subjects' => SchoolPlan::school_subjects(),
-            'subject_categories' => SchoolPlan::subject_categories()
-
-        ]);
+        return view('config.schoolPlan.create', ['model' => $this->model]);
     }
 
     /**
@@ -75,13 +72,8 @@ class SchoolPlanController extends Controller
     public function edit(SchoolPlan $schoolPlan)
     {
         return view('config.schoolPlan.edit', [
-
-            'schoolPlan' => $schoolPlan,
-            'courses' => SchoolPlan::courses(),
-            'classes' => SchoolPlan::classes(),
-            'subjects' => SchoolPlan::school_subjects(),
-            'subject_categories' => SchoolPlan::subject_categories()
-
+            'schoolPlan'    => $schoolPlan,
+            'model'         => $this->model
         ]);
     }
 
@@ -128,14 +120,11 @@ class SchoolPlanController extends Controller
     public function get(Request $request): View
     {
         return view('config.schoolPlan.index', [
-
-            'courses' => SchoolPlan::courses(),
-            'classes' => SchoolPlan::classes(),
+            'model'      => $this->model,
             'schoolPlan' => SchoolPlan::item(
                 $request->course_id,
                 $request->class_id
             )
-
         ]);
 
     }

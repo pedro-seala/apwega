@@ -11,10 +11,16 @@ class PriceController extends Controller
 {
 
     /**
+     * Get data from uri
      * @var int $entity
      */
-    public $entity;
+    protected $entity;
 
+    /**
+     * New instance of price
+     * @var \App\Models\Price
+     */
+    protected $model;
 
     /**
      * @param \Illuminate\Http\Request $request
@@ -23,6 +29,7 @@ class PriceController extends Controller
     {
         $this->middleware('auth');
         $this->entity = $request->entity;
+        $this->model = new Price;
     }
 
     /**
@@ -31,13 +38,11 @@ class PriceController extends Controller
      */
     public function index(): View
     {
-        return view('config.price.index', [
+        $entity = $this->entity;
+        $prices = Price::items($this->entity);
+        $model = $this->model;
 
-            'entity'   => $this->entity,
-            'prices'   => Price::items($this->entity),
-            'classes'  => Price::classes()
-
-        ]);
+        return view('config.price.index', compact('entity', 'prices', 'model'));
     }
 
     /**
@@ -46,14 +51,11 @@ class PriceController extends Controller
      */
     public function create(): View
     {
-        return view('config.price.create', [
-            'entity'                => $this->entity,
-            'prices'                => Price::items($this->entity, 3),
-            'classes'               => Price::classes(),
-            'courses'               => Price::courses(),
-            'paymentDescriptions'   => Price::payment_descriptions(),
-            'schoolYears'           => Price::school_years()
-        ]);
+        $entity = $this->entity;
+        $prices = Price::items($this->entity, 4);
+        $model = $this->model;
+
+        return view('config.price.create', compact('entity', 'prices', 'model'));
     }
 
     /**
@@ -88,27 +90,10 @@ class PriceController extends Controller
      */
     public function edit(Price $price): View
     {
-        if ($this->entity) {
-            return view('config.price.edit', [
+        $entity = $this->entity;
+        $model = $this->model;
 
-                'price'                 => $price,
-                'entity'                => $this->entity,
-                'classes'               => Price::classes(),
-                'paymentDescriptions'   => Price::payment_descriptions()
-
-            ]);
-        } else {
-            return view('config.price.edit', [
-
-                'price'                 => $price,
-                'entity'                => $this->entity,
-                'classes'               => Price::classes(),
-                'courses'               => Price::courses(),
-                'paymentDescriptions'   => Price::payment_descriptions(),
-                'schoolYears'           => Price::school_years()
-
-            ]);
-        }
+        return view('config.price.edit', compact('entity', 'price', 'model'));
     }
 
     /**

@@ -20,7 +20,7 @@ class SchoolPlan extends Model
      * Get a corresponding subjec
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function subject(): BelongsTo
+    public function school_subject(): BelongsTo
     {
         return $this->belongsTo(SchoolSubject::class);
     }
@@ -42,7 +42,7 @@ class SchoolPlan extends Model
      */
     public function school_class(): BelongsTo
     {
-        return $this->belongsTo(SchoolClass::class, 'school_class_id');
+        return $this->belongsTo(SchoolClass::class);
     }
 
 
@@ -52,7 +52,7 @@ class SchoolPlan extends Model
      */
     public function subject_category(): BelongsTo
     {
-        return $this->belongsTo(SubjectCategory::class, 'subject_category_id');
+        return $this->belongsTo(SubjectCategory::class);
     }
 
 
@@ -65,9 +65,9 @@ class SchoolPlan extends Model
     public static function item(int $course_id, int $class_id): Collection
     {
         $collection = self::where('course_id', $course_id)
-                    ->where('school_class_id', $class_id)
-                    ->orderBy('id', 'desc')
-                    ->get();
+            ->where('school_class_id', $class_id)
+            ->orderBy('id', 'desc')
+            ->get();
 
         if ($collection->count()) {
             alert('Sucesso', 'Dados encontrados', 'success');
@@ -76,6 +76,47 @@ class SchoolPlan extends Model
         }
 
         return $collection;
+    }
+
+
+    /**
+     * Get all courses in Course model
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    static function courses(): Collection
+    {
+        return Course::orderBy('name', 'asc')->get();
+    }
+
+
+    /**
+     * Get all classes in Classe model
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    static function school_classes(): Collection
+    {
+        return SchoolClass::orderBy('level', 'asc')->get();
+    }
+
+
+    /**
+     * Get all active school subjects in School Subject model
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    static function school_subjects(): Collection
+    {
+        return SchoolSubject::where('status', 1)
+            ->orderBy('name', 'asc')->get();
+    }
+
+
+    /**
+     * Get all subject categories in Subject Category model
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    static function subject_categories(): Collection
+    {
+        return SubjectCategory::orderBy('name', 'asc')->get();
     }
 
 
@@ -144,46 +185,5 @@ class SchoolPlan extends Model
                 'type' => 'error'
             ];
         }
-    }
-
-
-    /**
-     * Get all courses in Course model
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
-    static function courses(): Collection
-    {
-        return Course::orderBy('name', 'asc')->get();
-    }
-
-
-    /**
-     * Get all classes in Classe model
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
-    static function classes(): Collection
-    {
-        return SchoolClass::orderBy('level', 'asc')->get();
-    }
-
-
-    /**
-     * Get all active school subjects in School Subject model
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
-    static function school_subjects(): Collection
-    {
-        return SchoolSubject::where('status', 1)
-            ->orderBy('name', 'asc')->get();
-    }
-
-
-    /**
-     * Get all subject categories in Subject Category model
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
-    static function subject_categories(): Collection
-    {
-        return SubjectCategory::orderBy('name', 'asc')->get();
     }
 }

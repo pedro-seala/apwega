@@ -43,7 +43,7 @@
                         @foreach ($schoolPlan as $plan)
                             <tr>
                                 <td>
-                                    {{ $plan->subject->name }}
+                                    {{ $plan->school_subject->name }}
                                 </td>
 
                                 <td class="hsm text-center">

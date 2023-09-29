@@ -1,6 +1,6 @@
-<div class="grid grid-cols-1 gap-4 {{ !$entity ? 'md:grid-cols-3' : 'md:grid-cols-2' }}">
-    @csrf
+@csrf
 
+<div class="grid grid-cols-1 gap-4 {{ !$entity ? 'md:grid-cols-3' : 'md:grid-cols-2' }}">
     {{-- Description --}}
     <div>
         <x-input-label for="payment_description_id">
@@ -14,7 +14,7 @@
                     {{ $price->payment_description->description }}
                 </option>
 
-                @foreach ($paymentDescriptions as $paymentDescription)
+                @foreach ($model->payment_descriptions() as $paymentDescription)
                     @if ($paymentDescription->id <> $price->payment_description->id)
                         <option value="{{ $paymentDescription->id }}">
                             {{ $paymentDescription->description }}
@@ -22,8 +22,10 @@
                     @endif
                 @endforeach
             @else
-                <option></option>
-                @foreach ($paymentDescriptions as $paymentDescription)
+                <option>
+                </option>
+
+                @foreach ($model->payment_descriptions() as $paymentDescription)
                     <option value="{{ $paymentDescription->id }}">
                         {{ $paymentDescription->description }}
                     </option>
@@ -46,7 +48,7 @@
                         {{ $price->school_class->level }}ª Classe
                     </option>
 
-                    @foreach ($classes as $class)
+                    @foreach ($model->school_classes() as $class)
                         @if ($class->id <> $price->school_class_id)
                             <option value="{{ $class->id }}">
                                 {{ $class->level }}ª Classe
@@ -54,8 +56,11 @@
                         @endif
                     @endforeach
                 @else
-                    <option disabled selected>Selecione uma opção</option>
-                    @foreach ($classes as $class)
+                    <option disabled selected>
+                        Selecione uma opção
+                    </option>
+
+                    @foreach ($model->school_classes() as $class)
                         <option value="{{ $class->id }}">
                             {{ $class->level }}ª Classe
                         </option>
@@ -91,7 +96,7 @@
                         {{ $price->course->name }}
                     </option>
 
-                    @foreach ($courses as $course)
+                    @foreach ($model->courses() as $course)
                         @if ($course->id <> $price->course->id)
                             <option value="{{ $course->id }}">
                                 {{ $course->name }}
@@ -99,8 +104,10 @@
                         @endif
                     @endforeach
                 @else
-                    <option></option>
-                    @foreach ($courses as $course)
+                    <option>
+                    </option>
+
+                    @foreach ($model->courses() as $course)
                         <option value="{{ $course->id }}">
                             {{ $course->name }}
                         </option>
@@ -124,7 +131,7 @@
                         {{ $price->school_year->year }}
                     </option>
 
-                    @foreach ($schoolYears as $schoolYear)
+                    @foreach ($model->school_years() as $schoolYear)
                         @if ($schoolYear->id != $price->school_year->id)
                             <option value="{{ $schoolYear->id }}">
                                 {{ $schoolYear->year }}
@@ -132,8 +139,11 @@
                         @endif
                     @endforeach
                 @else
-                    <option disabled selected>Selecione uma opção</option>
-                    @foreach ($schoolYears as $schoolYear)
+                    <option disabled selected>
+                        Selecione uma opção
+                    </option>
+
+                    @foreach ($model->school_years() as $schoolYear)
                         <option value="{{ $schoolYear->id }}">
                             {{ $schoolYear->year }}
                         </option>

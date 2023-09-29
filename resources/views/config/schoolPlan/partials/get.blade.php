@@ -14,7 +14,7 @@
                         <x-select name="course_id" id="course_id" class="select2" required>
                             <option></option>
 
-                            @foreach ($courses as $course)
+                            @foreach ($model->courses() as $course)
                                 <option value="{{ $course->id }}">
                                     {{ $course->name }}
                                 </option>
@@ -30,7 +30,7 @@
                         <x-select name="class_id" id="class_id" class="select2" required>
                             <option></option>
 
-                            @foreach ($classes as $class)
+                            @foreach ($model->school_classes() as $class)
                                 <option value="{{ $class->id }}">
                                     {{ $class->level }}ª Classe
                                 </option>

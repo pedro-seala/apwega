@@ -14,16 +14,15 @@ class PaymentLimitController extends Controller
         $this->middleware('auth');
     }
 
-
     /**
      * Display a listing of the resource.
      * @return \Illuminate\View\View
      */
     public function index(): View
     {
-        return view('config.paymentLimit.index', [
-            'paymentLimit' => PaymentLimit::payment_limit()
-        ]);
+        $paymentLimit = PaymentLimit::payment_limit();
+
+        return view('config.paymentLimit.index', compact('paymentLimit'));
     }
 
     /**

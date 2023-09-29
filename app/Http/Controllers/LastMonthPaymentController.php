@@ -9,6 +9,10 @@ use Illuminate\View\View;
 
 class LastMonthPaymentController extends Controller
 {
+    /**
+     * New instance of last month of payment
+     * @var \App\Models\LastMonthPayment
+     */
     protected $model;
 
     public function __construct()
@@ -24,9 +28,9 @@ class LastMonthPaymentController extends Controller
      */
     public function index(): View
     {
-        return view('config.lastMonthPayment.index', [
-            'lastMonths' => LastMonthPayment::last_months()
-        ]);
+        $lastMonthPayments = LastMonthPayment::last_months();
+
+        return view('config.lastMonthPayment.index', compact('lastMonthPayment'));
     }
 
     /**
@@ -37,10 +41,10 @@ class LastMonthPaymentController extends Controller
      */
     public function edit(LastMonthPayment $lastMonthPayment): View
     {
-        return view('config.lastMonthPayment.edit', [
-            'lastMonthPayment'  => $lastMonthPayment,
-            'model'             => $this->model
-        ]);
+        $model = $this->model;
+        $lastMonthPayments = LastMonthPayment::last_months();
+
+        return view('config.lastMonthPayment.edit', compact('lastMonthPayment', 'model'));
     }
 
     /**

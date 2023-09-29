@@ -13,7 +13,7 @@
         <x-slot name="content">
             @if ($prices->count() > 0)
                 <x-table.default
-                    caption="Tabela de preços para {{ $_REQUEST['entity'] ? 'funcionários' : 'alunos' }}">
+                    caption="{{ __('Price table') }}">
 
                     <x-slot name="thead">
                         <tr>
