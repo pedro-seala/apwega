@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
     @csrf
 
-    <div class="col-span-2">
+    <div class="lg:col-span-2">
         <x-input-label for="course_id">
             Curso
         </x-input-label>
@@ -12,7 +12,7 @@
                     {{ $schoolPlan->course->name }}
                 </option>
 
-                @foreach ($courses as $course)
+                @foreach ($model->courses() as $course)
                     @if ($schoolPlan->course->name <> $course->name)
                         <option value="{{ $course->id }}">
                             {{ $course->name }}
@@ -21,10 +21,9 @@
                 @endforeach
             @else
                 <option>
-                    {{-- first and empty option --}}
                 </option>
 
-                @foreach ($courses as $course)
+                @foreach ($model->courses() as $course)
                     <option value="{{ $course->id }}">
                         {{ $course->name }}
                     </option>
@@ -34,7 +33,7 @@
     </div>
 
     <div>
-        <x-input-label for="school_classe_id">
+        <x-input-label for="school_class_id">
             Classe
         </x-input-label>
 
@@ -44,7 +43,7 @@
                     {{ $schoolPlan->school_class->level }}ª Classe
                 </option>
 
-                @foreach ($classes as $class)
+                @foreach ($model->school_classes() as $class)
                     @if ($schoolPlan->school_class->level <> $class->level)
                         <option value="{{ $class->id }}">
                             {{ $class->level }}ª Classe
@@ -56,7 +55,7 @@
                     Selecione uma classe
                 </option>
 
-                @foreach ($classes as $class)
+                @foreach ($model->school_classes() as $class)
                     <option value="{{ $class->id }}">
                         {{ $class->level }}
                         ª Classe
@@ -69,21 +68,21 @@
 
 <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
 
-    <div class="col-span-2">
+    <div class="lg:col-span-2">
         <x-input-label for="subject_id">
             Disciplina
         </x-input-label>
 
         <x-select name="subject_id" id="subject_id" class="select2" required>
             @isset($schoolPlan)
-                <option value="{{ $schoolPlan->subject->id }}" selected>
-                    {{ $schoolPlan->subject->name }}
+                <option value="{{ $schoolPlan->school_subject->id }}" selected>
+                    {{ $schoolPlan->school_subject->name }}
                 </option>
 
-                @foreach ($subjects as $subject)
-                    @if ($schoolPlan->subject->name <> $subject->name)
-                        <option value="{{ $subject->id }}">
-                            {{ $subject->name }}
+                @foreach ($model->school_subjects() as $school_subject)
+                    @if ($schoolPlan->school_subject->name <> $school_subject->name)
+                        <option value="{{ $school_subject->id }}">
+                            {{ $school_subject->name }}
                         </option>
                     @endif
                 @endforeach
@@ -92,41 +91,9 @@
                     {{-- first and empty option --}}
                 </option>
 
-                @foreach ($subjects as $subject)
-                    <option value="{{ $subject->id }}">
-                        {{ $subject->name }}
-                    </option>
-                @endforeach
-            @endisset
-        </x-select>
-    </div>
-
-    <div>
-        <x-input-label for="subject_category_id">
-            Categoria da disciplina
-        </x-input-label>
-
-        <x-select name="subject_category_id" id="subject_category_id" class="select2" required>
-            @isset($schoolPlan)
-                <option value="{{ $schoolPlan->subject_category->id }}" selected>
-                    {{ $schoolPlan->subject_category->name }}
-                </option>
-
-                @foreach ($subject_categories as $subject_category)
-                    @if ($schoolPlan->subject_category->name <> $subject_category->name)
-                        <option value="{{ $subject_category->id }}">
-                            {{ $subject_category->name }}
-                        </option>
-                    @endif
-                @endforeach
-            @else
-                <option>
-                    {{-- first and empty option --}}
-                </option>
-
-                @foreach ($subject_categories as $subject_category)
-                    <option value="{{ $subject_category->id }}">
-                        {{ $subject_category->name }}
+                @foreach ($model->school_subjects() as $subject_subject)
+                    <option value="{{ $school_subject->id }}">
+                        {{ $school_subject->name }}
                     </option>
                 @endforeach
             @endisset
@@ -141,6 +108,38 @@
         <x-text-input name="time" id="time"
             value="{{ $schoolPlan->time ?? old('time') }}" />
 
+    </div>
+
+    <div class="lg:col-span-2">
+        <x-input-label for="subject_category_id">
+            Categoria da disciplina
+        </x-input-label>
+
+        <x-select name="subject_category_id" id="subject_category_id" class="select2" required>
+            @isset($schoolPlan)
+                <option value="{{ $schoolPlan->subject_category->id }}" selected>
+                    {{ $schoolPlan->subject_category->name }}
+                </option>
+
+                @foreach ($model->subject_categories() as $subject_category)
+                    @if ($schoolPlan->subject_category->name <> $subject_category->name)
+                        <option value="{{ $subject_category->id }}">
+                            {{ $subject_category->name }}
+                        </option>
+                    @endif
+                @endforeach
+            @else
+                <option>
+                    {{-- first and empty option --}}
+                </option>
+
+                @foreach ($model->subject_categories() as $subject_category)
+                    <option value="{{ $subject_category->id }}">
+                        {{ $subject_category->name }}
+                    </option>
+                @endforeach
+            @endisset
+        </x-select>
     </div>
 </div>
 

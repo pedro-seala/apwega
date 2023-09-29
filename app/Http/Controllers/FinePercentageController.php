@@ -14,16 +14,15 @@ class FinePercentageController extends Controller
         $this->middleware('auth');
     }
 
-
     /**
      * Display a listing of the resource.
      * @return \Illuminate\View\View
      */
     public function index(): View
     {
-        return view('config.finePercentage.index', [
-            'finePercentage' => FinePercentage::fine_percentage()
-        ]);
+        $finePercentage = FinePercentage::fine_percentage();
+
+        return view('config.finePercentage.index', compact('finePercentage'));
     }
 
     /**

@@ -9,9 +9,16 @@ use Illuminate\View\View;
 
 class SealNoteController extends Controller
 {
+    /**
+     * New instance of seal note
+     * @var \App\Models\SealNote
+     */
+    protected $model;
+
     public function __construct()
     {
         $this->middleware('auth');
+        $this->model = new SealNote;
     }
 
     /**
@@ -32,11 +39,8 @@ class SealNoteController extends Controller
     public function create(): View
     {
         return view('config.sealNote.create', [
-
-            'sealNotes'     => SealNote::items(4),
-            'months'        => SealNote::months(),
-            'quarters'      => SealNote::quarters()
-
+            'sealNotes' => SealNote::items(4),
+            'model'     => $this->model
         ]);
     }
 
@@ -73,11 +77,8 @@ class SealNoteController extends Controller
     public function edit(SealNote $sealNote): View
     {
         return view('config.sealNote.edit', [
-
-            'sealNote'     => $sealNote,
-            'months'       => SealNote::months(),
-            'quarters'     => SealNote::quarters()
-
+            'sealNote'  => $sealNote,
+            'model'     => $this->model
         ]);
     }
 

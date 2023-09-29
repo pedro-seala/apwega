@@ -60,7 +60,7 @@ class Price extends Model
      * Get all classes from Class model
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public static function classes(): Collection
+    public static function school_classes(): Collection
     {
         return SchoolClass::all();
     }

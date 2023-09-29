@@ -29,8 +29,8 @@ return new class extends Migration
                     ->references('id')
                     ->on('subject_categories');
 
-            $table->unsignedBigInteger('subject_id');
-            $table->foreign('subject_id')
+            $table->unsignedBigInteger('school_subject_id');
+            $table->foreign('school_subject_id')
                     ->references('id')
                     ->on('school_subjects');
 

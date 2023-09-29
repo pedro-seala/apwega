@@ -14,7 +14,7 @@
                         {{ $sealNote->month->name }}
                     </option>
 
-                    @foreach ($months as $month)
+                    @foreach ($model->months() as $month)
                         @if ($month->id <> $sealNote->month_id)
                             <option value="{{ $month->id }}">
                                 {{ $month->name }}
@@ -22,7 +22,10 @@
                         @endif
                     @endforeach
                 @else
-                    @foreach ($months as $month)
+                    <option>
+                    </option>
+
+                    @foreach ($model->months() as $month)
                         <option value="{{ $month->id }}">
                             {{ $month->name }}
                         </option>
@@ -43,7 +46,7 @@
                         {{ $sealNote->quarter->order }}
                     </option>
 
-                    @foreach ($quarters as $quarter)
+                    @foreach ($model->quarters() as $quarter)
                         @if ($quarter->id <> $sealNote->quarter_id)
                             <option value="{{ $quarter->id }}">
                                 {{ $quarter->order }}
@@ -51,7 +54,11 @@
                         @endif
                     @endforeach
                 @else
-                    @foreach ($quarters as $quarter)
+                    <option selected disabled>
+                        Selecione uma opção
+                    </option>
+
+                    @foreach ($model->quarters() as $quarter)
                         <option value="{{ $quarter->id }}">
                             {{ $quarter->order }}
                         </option>
