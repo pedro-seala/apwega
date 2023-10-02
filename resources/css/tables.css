@@ -1,0 +1,22 @@
+#table-responsive .tbody-row {
+    @apply even:hover:bg-gray-100;
+    @apply odd:bg-gray-50 odd:hover:bg-gray-100;
+}
+
+#table-responsive th {
+    @apply font-medium text-white;
+    @apply bg-indigo-500;
+}
+
+#table-responsive td {
+    @apply font-medium text-gray-600;
+}
+
+#table-responsive th,
+#table-responsive td {
+    @apply whitespace-nowrap px-4 py-2;
+}
+
+#table-responsive .cog {
+    @apply space-x-2 text-center;
+}

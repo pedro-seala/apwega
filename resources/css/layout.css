@@ -1,0 +1,16 @@
+:root {
+    --navbar-height: 65px;
+    --main-height: calc(100vh - var(--navbar-height));
+}
+
+.navbar {
+    height: var(--navbar-height);
+}
+
+.main {
+    height: var(--main-height);
+}
+
+.h1 {
+    @apply font-semibold text-indigo-400;
+}

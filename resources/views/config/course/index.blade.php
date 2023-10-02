@@ -14,7 +14,7 @@
 
         <x-slot name="content">
             @if ($courses->count() > 0)
-                <x-table.default caption="Lista de cursos">
+                <x-table.light>
 
                     <x-slot name="thead">
                         <tr>
@@ -32,7 +32,7 @@
 
                     <x-slot name="tbody">
                         @foreach ($courses as $course)
-                            <tr>
+                            <tr class="tbody-row">
                                 <td>
                                     {{ $course->name }}
                                 </td>

@@ -2,11 +2,11 @@
     @csrf
 
     <div class="lg:col-span-2">
-        <x-input-label for="course_id">
+        <x-input-label for="courses">
             Curso
         </x-input-label>
 
-        <x-select name="course_id" id="course_id" class="select2" required>
+        <x-select name="course_id" id="courses" required>
             @isset($schoolPlan)
                 <option value="{{ $schoolPlan->course->id }}" selected>
                     {{ $schoolPlan->course->name }}
@@ -33,11 +33,11 @@
     </div>
 
     <div>
-        <x-input-label for="school_class_id">
+        <x-input-label for="classes">
             Classe
         </x-input-label>
 
-        <x-select name="school_class_id" id="school_class_id" class="w-full" required>
+        <x-select name="school_class_id" id="classes" required>
             @isset($schoolPlan)
                 <option value="{{ $schoolPlan->school_class->id }}" selected>
                     {{ $schoolPlan->school_class->level }}ª Classe
@@ -51,8 +51,7 @@
                     @endif
                 @endforeach
             @else
-                <option selected disabled>
-                    Selecione uma classe
+                <option>
                 </option>
 
                 @foreach ($model->school_classes() as $class)
@@ -68,12 +67,12 @@
 
 <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
 
-    <div class="lg:col-span-2">
-        <x-input-label for="subject_id">
+    <div>
+        <x-input-label for="subjects">
             Disciplina
         </x-input-label>
 
-        <x-select name="subject_id" id="subject_id" class="select2" required>
+        <x-select name="school_subject_id" id="subjects" required>
             @isset($schoolPlan)
                 <option value="{{ $schoolPlan->school_subject->id }}" selected>
                     {{ $schoolPlan->school_subject->name }}
@@ -88,10 +87,9 @@
                 @endforeach
             @else
                 <option>
-                    {{-- first and empty option --}}
                 </option>
 
-                @foreach ($model->school_subjects() as $subject_subject)
+                @foreach ($model->school_subjects() as $school_subject)
                     <option value="{{ $school_subject->id }}">
                         {{ $school_subject->name }}
                     </option>
@@ -101,21 +99,11 @@
     </div>
 
     <div>
-        <x-input-label for="time">
-            Carga horária
-        </x-input-label>
-
-        <x-text-input name="time" id="time"
-            value="{{ $schoolPlan->time ?? old('time') }}" />
-
-    </div>
-
-    <div class="lg:col-span-2">
-        <x-input-label for="subject_category_id">
+        <x-input-label for="subject-category">
             Categoria da disciplina
         </x-input-label>
 
-        <x-select name="subject_category_id" id="subject_category_id" class="select2" required>
+        <x-select name="subject_category_id" id="subject-category" required>
             @isset($schoolPlan)
                 <option value="{{ $schoolPlan->subject_category->id }}" selected>
                     {{ $schoolPlan->subject_category->name }}
@@ -130,7 +118,6 @@
                 @endforeach
             @else
                 <option>
-                    {{-- first and empty option --}}
                 </option>
 
                 @foreach ($model->subject_categories() as $subject_category)
@@ -141,9 +128,19 @@
             @endisset
         </x-select>
     </div>
+
+    <div>
+        <x-input-label for="time">
+            Carga horária
+        </x-input-label>
+
+        <x-text-input name="time" id="time" class="p-1"
+            value="{{ $schoolPlan->time ?? old('time') }}" />
+
+    </div>
 </div>
 
-<div class="mt-6 text-end lg:mt-3">
+<div class="mt-6 text-end lg:mt-6">
     <x-cancel-button />
 
     <x-primary-button />

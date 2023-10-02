@@ -12,7 +12,7 @@
 
         <x-slot name="content">
             @if ($schoolYears->count() > 0)
-                <x-table.default caption="Retrospectiva">
+                <x-table.light>
 
                     <x-slot name="thead">
                         <tr>
@@ -21,12 +21,12 @@
                                 Ano lectivo
                             </th>
 
-                            <th class="hsm">
+                            <th>
                                 <i class="fa-solid fa-calendar-day"></i>
                                 Início
                             </th>
 
-                            <th class="hsm">
+                            <th>
                                 <i class="fa-solid fa-calendar-day"></i>
                                 Fim
                             </th>
@@ -40,21 +40,20 @@
 
                     <x-slot name="tbody">
                         @foreach ($schoolYears as $schoolYear)
-                            <tr>
+                            <tr class="tbody-row">
                                 <td>
                                     {{ $schoolYear->year }}
                                 </td>
 
-                                <td class="hsm">
+                                <td>
                                     {{ $schoolYear->date_format($schoolYear->start) }}
                                 </td>
 
-                                <td class="hsm">
+                                <td>
                                     {{ $schoolYear->date_format($schoolYear->end) }}
                                 </td>
 
                                 <td class="cog">
-
                                     <x-table.edit-btn
                                         :href="route('school-years.edit', $schoolYear)" />
 

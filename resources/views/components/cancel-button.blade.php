@@ -13,8 +13,6 @@
         'onclick' => 'history.go(-1)'
     ]) }}>
 
-    <i class="fa-solid fa-square-caret-left"></i>
-    <span class="ms-1">
-        {{ $title ?? __('Cancel') }}
-    </span>
+    <i class="fa-solid fa-square-caret-left me-1"></i>
+    {{ $title ?? __('Cancel') }}
 </button>

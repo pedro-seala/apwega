@@ -1,5 +1,6 @@
 // import overlayScrollBar
 import 'overlayscrollbars/overlayscrollbars.css';
+
 import {
     OverlayScrollbars,
     ScrollbarsHidingPlugin,
@@ -9,6 +10,7 @@ import {
 
 // simple initialization with an element
 const osInstance = [
-    OverlayScrollbars(document.querySelector('#main-content'), {}),
-    OverlayScrollbars(document.querySelector('#sidebar-nav'), {})
+    OverlayScrollbars(document.querySelector('#main-content')),
+    OverlayScrollbars(document.querySelector('#sidebar-nav')),
+    OverlayScrollbars(document.querySelector('#table-responsive'))
 ];
