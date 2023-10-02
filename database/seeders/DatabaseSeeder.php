@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\SubjectCategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -34,7 +33,8 @@ class DatabaseSeeder extends Seeder
             SealNoteSeeder::class,
             PriceSeeder::class,
             FinePercentageSeeder::class,
-            LastMonthPaymentSeeder::class
+            LastMonthPaymentSeeder::class,
+            StudentSeeder::class
         ]);
     }
 }
