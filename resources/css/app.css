@@ -1,14 +1,13 @@
 /* Font awesome*/
-@import "@fortawesome/fontawesome-free/css/fontawesome.min";
-@import "@fortawesome/fontawesome-free/css/brands.min";
-@import "@fortawesome/fontawesome-free/css/regular.min";
-@import "@fortawesome/fontawesome-free/css/solid.min";
+@import "@fortawesome/fontawesome-free/css/all.min";
 
-/* Tailwind for select2 */
-@import "./tw-select2";
+/* Select 2 */
+@import "select2/dist/css/select2.min";
 
 /* Custom styles */
 @import "./custom";
+@import "./layout";
+@import "./tables";
 
 /* Tailwind directives */
 @tailwind base;

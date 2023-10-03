@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="inline-flex items-end">
-                        <x-primary-button class="mb-2" />
+                        <x-primary-button />
                     </div>
                 </div>
 

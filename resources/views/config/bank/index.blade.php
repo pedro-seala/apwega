@@ -4,7 +4,7 @@
         <x-slot name="header" class="flex justify-between">
             <h1 class="h1">
                 <i class="fa-solid fa-building-columns"></i>
-                <span>{{ __('Bank') }}</span>
+                <span>{{ __('Banks') }}</span>
             </h1>
 
             <x-add-btn :href="route('banks.create')" />
@@ -12,7 +12,7 @@
 
         <x-slot name="content">
             @if ($banks->count() > 0)
-                <x-table.default caption="Bancos">
+                <x-table.light caption="Bancos">
 
                     <x-slot name="thead">
                         <tr>
@@ -21,16 +21,16 @@
                                 Banco
                             </th>
 
-                            <th class="hidden lg:table-cell">
+                            <th>
                                 Abreviatura
                             </th>
 
-                            <th class="hidden lg:table-cell">
+                            <th>
                                 <i class="fa-solid fa-money-check"></i>
                                 Nº de conta
                             </th>
 
-                            <th class="hidden lg:table-cell">
+                            <th>
                                 <i class="fa-solid fa-money-check-dollar"></i>
                                 IBAN
                             </th>
@@ -44,24 +44,24 @@
 
                     <x-slot name="tbody">
                         @foreach ($banks as $bank)
-                            <tr>
+                            <tr class="tbody-row">
                                 <td>
                                     {{ $bank->name }}
                                 </td>
 
-                                <td class="hidden lg:table-cell">
+                                <td>
                                     {{ $bank->abbreviation }}
                                 </td>
 
-                                <td class="hidden lg:table-cell">
+                                <td>
                                     {{ $bank->account_number }}
                                 </td>
 
-                                <td class="hidden lg:table-cell">
+                                <td>
                                     {{ $bank->iban }}
                                 </td>
 
-                                <td class="space-x-2 text-center">
+                                <td class="cog">
 
                                     <x-table.edit-btn
                                         :href="route('banks.edit', $bank)" />
@@ -74,7 +74,7 @@
                         @endforeach
                     </x-slot>
 
-                </x-table.default>
+                </x-table.light>
 
                 {{ $banks->links() }}
             @else

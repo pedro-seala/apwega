@@ -13,7 +13,7 @@
         <x-slot name="content">
             @if ($paymentDescriptions->count() > 0)
 
-                <x-table.default>
+                <x-table.light>
                     <x-slot name="thead">
                         <tr>
                             <th>
@@ -21,12 +21,12 @@
                                 Descrição
                             </th>
 
-                            <th class="hsm">
+                            <th>
                                 <i class="fa-regular fa-user"></i>
                                 Destinatário
                             </th>
 
-                            <th class="hsm">
+                            <th>
                                 <i class="fa-regular fa-square"></i>
                                 Estado
                             </th>
@@ -40,7 +40,7 @@
 
                     <x-slot name="tbody">
                         @foreach ($paymentDescriptions as $paymentDescription)
-                            <tr>
+                            <tr class="tbody-row">
                                 <td>
                                     {{ $paymentDescription->description }}
                                 </td>
@@ -64,7 +64,7 @@
                             </tr>
                         @endforeach
                     </x-slot>
-                </x-table.default>
+                </x-table.light>
 
                 {{ $paymentDescriptions->links() }}
             @else

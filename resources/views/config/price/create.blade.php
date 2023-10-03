@@ -23,7 +23,7 @@
         </x-slot>
 
         <x-slot name="content">
-            <x-table.default caption="Recentemente registados">
+            <x-table.light>
 
                 <x-slot name="thead">
                     <tr>
@@ -48,7 +48,7 @@
 
                 <x-slot name="tbody">
                     @foreach ($prices as $price)
-                        <tr>
+                        <tr class="tbody-row">
                             @if (!$entity)
                                 <td>
                                     {{ $price->school_class->level }}ª Classe
@@ -69,7 +69,7 @@
                     @endforeach
                 </x-slot>
 
-            </x-table.default>
+            </x-table.light>
         </x-slot>
 
     </x-layouts.card>

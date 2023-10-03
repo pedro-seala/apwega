@@ -31,7 +31,7 @@ class BankController extends Controller
      */
     public function create(): View
     {
-        $banks = Bank::items();
+        $banks = Bank::items(6);
         return view('config.bank.create', compact('banks'));
     }
 

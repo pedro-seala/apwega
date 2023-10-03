@@ -1,8 +1,9 @@
 <a
     {{ $attributes->merge([
-        'class' => "bg-cyan-300 hover:bg-cyan-400 transition focus:ring-2
-                    focus:ring-offset-2 focus:ring-bg-cyan-500 p-1 uppercase
-                    rounded-md text-xs font-semibold",
+        'class' => "bg-violet-500 hover:bg-violet-600 transition focus:ring-2
+                    focus:ring-offset-2 focus:ring-bg-violet-500 py-1 px-2
+                    uppercase rounded-md text-xs font-semibold
+                    text-white shadow-sm",
     ]) }}>
 
     <i class="fa-solid fa-edit"></i>

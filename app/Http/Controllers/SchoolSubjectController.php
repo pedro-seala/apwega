@@ -30,7 +30,7 @@ class SchoolSubjectController extends Controller
      */
     public function create(): View
     {
-        $schoolSubjects = SchoolSubject::items();
+        $schoolSubjects = SchoolSubject::items(6);
 
         return view('config.schoolSubject.create', compact('schoolSubjects'));
     }

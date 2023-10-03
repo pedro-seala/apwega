@@ -13,8 +13,8 @@
         </x-slot>
 
         <x-slot name="content">
-            @isset($schoolPlan)
-                <x-table.default>
+            @if(isset($schoolPlan) && $schoolPlan->count())
+                <x-table.light>
                     <x-slot name="thead">
                         <tr class="sticky top-0">
                             <th>
@@ -22,12 +22,12 @@
                                 Disciplina
                             </th>
 
-                            <th class="hsm">
+                            <th>
                                 <i class="fa-regular fa-circle"></i>
                                 Categoria
                             </th>
 
-                            <th class="hsm">
+                            <th>
                                 <i class="fa-regular fa-clock"></i>
                                 Carga horária
                             </th>
@@ -41,7 +41,7 @@
 
                     <x-slot name="tbody">
                         @foreach ($schoolPlan as $plan)
-                            <tr>
+                            <tr class="tbody-row">
                                 <td>
                                     {{ $plan->school_subject->name }}
                                 </td>
@@ -65,7 +65,7 @@
                             </tr>
                         @endforeach
                     </x-slot>
-                </x-table.default>
+                </x-table.light>
             @else
                 <x-table.alert-info />
             @endisset

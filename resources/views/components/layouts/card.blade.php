@@ -2,8 +2,7 @@
     <div class="shadow-md sm:rounded-lg">
         <div
             {{ $header->attributes->merge([
-                'class' => 'bg-gradient-to-r text-xl
-                            from-indigo-50 via-zinc-50 to-indigo-50
+                'class' => 'bg-transparent text-xl
                             border-b p-4',
             ]) }}>
 

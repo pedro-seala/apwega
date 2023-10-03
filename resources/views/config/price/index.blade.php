@@ -12,13 +12,12 @@
 
         <x-slot name="content">
             @if ($prices->count() > 0)
-                <x-table.default
-                    caption="{{ __('Price table') }}">
+                <x-table.light>
 
                     <x-slot name="thead">
                         <tr>
                             @if (!$entity)
-                                <th class="hsm">
+                                <th>
                                     <i class="fa-regular fa-circle"></i>
                                     Classe
                                 </th>
@@ -43,9 +42,9 @@
 
                     <x-slot name="tbody">
                         @foreach ($prices as $price)
-                            <tr>
+                            <tr class="tbody-row">
                                 @if (!$entity)
-                                    <td class="hsm">
+                                    <td>
                                         {{ $price->school_class->level }}ª Classe
                                     </td>
                                 @endif
@@ -61,7 +60,7 @@
                                     </kbd>
                                 </td>
 
-                                <td class="space-x-2 text-center">
+                                <td class="cog">
                                     <x-table.edit-btn
                                         :href="route('prices.edit', [$price, 'entity' => $entity])" />
 
@@ -72,7 +71,7 @@
                             </tr>
                         @endforeach
                     </x-slot>
-                </x-table.default>
+                </x-table.light>
 
                 {{ $prices->appends(['entity' => $entity])->links() }}
             @else

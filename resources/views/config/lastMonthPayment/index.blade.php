@@ -11,7 +11,7 @@
         </x-slot>
 
         <x-slot name="content">
-            <x-table.default caption="Classes">
+            <x-table.light>
                 <x-slot name="thead">
                     <tr>
                         <th>
@@ -19,12 +19,12 @@
                             Classe
                         </th>
 
-                        <th class="hsm">
+                        <th>
                             <i class="fa-regular fa-calendar"></i>
                             Mês
                         </th>
 
-                        <th class="text-end">
+                        <th class="cog">
                             <i class="fa-solid fa-cog"></i>
                             Opções
                         </th>
@@ -32,17 +32,17 @@
                 </x-slot>
 
                 <x-slot name="tbody">
-                    @foreach ($lastMonths as $lastMonth)
-                        <tr>
+                    @foreach ($lastMonthPayments as $lastMonth)
+                        <tr class="tbody-row">
                             <td>
                                 {{ $lastMonth->school_class->level }}ª Classe
                             </td>
 
-                            <td class="hsm">
+                            <td>
                                 {{ $lastMonth->month->name }}
                             </td>
 
-                            <td class="text-end">
+                            <td class="text-center">
                                 <x-table.edit-btn
                                     :href="route('last-month-payment.edit', $lastMonth)" />
 
@@ -51,7 +51,7 @@
                     @endforeach
                 </x-slot>
 
-            </x-table.default>
+            </x-table.light>
         </x-slot>
 
     </x-layouts.card>

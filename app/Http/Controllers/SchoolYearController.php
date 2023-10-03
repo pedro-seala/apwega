@@ -30,7 +30,7 @@ class SchoolYearController extends Controller
      */
     public function create(): View
     {
-        $schoolYears = SchoolYear::items();
+        $schoolYears = SchoolYear::items(6);
 
         return view('config.schoolYear.create', compact('schoolYears'));
     }

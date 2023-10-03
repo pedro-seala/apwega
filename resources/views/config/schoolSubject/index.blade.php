@@ -4,7 +4,7 @@
         <x-slot name="header" class="flex justify-between">
             <h1 class="h1">
                 <i class="fa-solid fa-chalkboard-user"></i>
-                <span>{{ __('Subject') }}</span>
+                <span>{{ __('Subjects') }}</span>
             </h1>
 
             <x-add-btn :href="route('school-subjects.create')" />
@@ -12,7 +12,7 @@
 
         <x-slot name="content">
             @if ($schoolSubjects->count() > 0)
-                <x-table.default caption="Disciplinas">
+                <x-table.light>
                     <x-slot name="thead">
                         <tr>
                             <th>
@@ -20,12 +20,12 @@
                                 Nome
                             </th>
 
-                            <th class="hsm">
+                            <th>
                                 <i class="fa-regular fa-circle"></i>
                                 Abreviatura
                             </th>
 
-                            <th class="hsm">
+                            <th>
                                 <i class="fa-regular fa-square"></i>
                                 Estado
                             </th>
@@ -39,7 +39,7 @@
 
                     <x-slot name="tbody">
                         @foreach ($schoolSubjects as $schoolSubject)
-                            <tr>
+                            <tr class="tbody-row">
                                 <td>
                                     {{ $schoolSubject->name }}
                                 </td>
@@ -63,7 +63,7 @@
                         @endforeach
                     </x-slot>
 
-                </x-table.default>
+                </x-table.light>
 
                 {{ $schoolSubjects->links() }}
             @else

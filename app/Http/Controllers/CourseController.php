@@ -31,7 +31,7 @@ class CourseController extends Controller
      */
     public function create(): View
     {
-        $courses = Course::items(pages: 3);
+        $courses = Course::items(8);
 
         return view('config.course.create', compact('courses'));
     }

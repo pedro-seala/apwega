@@ -30,7 +30,7 @@ class LastMonthPaymentController extends Controller
     {
         $lastMonthPayments = LastMonthPayment::last_months();
 
-        return view('config.lastMonthPayment.index', compact('lastMonthPayment'));
+        return view('config.lastMonthPayment.index', compact('lastMonthPayments'));
     }
 
     /**
