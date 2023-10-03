@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('mother', 128)->nullable();
             $table->date('birthDate');
             $table->string('identityCard', 14);
-            $table->date('icIssueDate');
-            $table->date('icExpirationDate');
-            $table->string('naturalness', 64);
-            $table->string('address', 64);
+            $table->date('icIssueDate')->nullable();
+            $table->date('icExpirationDate')->nullable();
+            $table->string('naturalness', 64)->nullable();
+            $table->string('address', 64)->nullable();
         });
     }
 

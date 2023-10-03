@@ -11,7 +11,7 @@
 
         <div {{ $content
                 ->attributes
-                ->merge(['class' => 'p-6 bg-white']) }}>
+                ->merge(['class' => 'p-6 bg-white rounded-b-lg']) }}>
 
             {{ $content }}
         </div>

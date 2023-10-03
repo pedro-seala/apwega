@@ -1,8 +1,7 @@
-<div id="sidebar-nav"
-    class="flex-1 p-2 overflow-y-auto bg-white border rounded-md shadow-lg"
-    data-overlayscrollbars-initialize x-show="open" x-transition>
+<div id="sidebar-nav" class="flex-1 p-2 overflow-y-auto bg-white border rounded-md shadow-lg"
+        x-show="open" x-transition>
 
-    <div class="flex flex-col gap-y-4">
+    <div class="flex flex-col gap-y-4"> 
         {{-- administrative area --}}
         <x-sidebar.dropdown>
             <x-slot name="trigger">
@@ -12,9 +11,9 @@
 
             <x-slot name="content">
                 {{-- student --}}
-                <x-sidebar.dropdown-link>
+                <x-sidebar.dropdown-link href="{{ route('students.index') }}">
                     <i class="fa-solid fa-user-plus"></i>
-                    Registar aluno
+                    {{ __('Create student') }}
                 </x-sidebar.dropdown-link>
 
                 {{-- naturalness --}}
