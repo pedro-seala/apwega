@@ -39,7 +39,7 @@ class SealNoteController extends Controller
     public function create(): View
     {
         return view('config.sealNote.create', [
-            'sealNotes' => SealNote::items(4),
+            'sealNotes' => SealNote::items(6),
             'model'     => $this->model
         ]);
     }

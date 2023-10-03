@@ -10,7 +10,7 @@
                         Curso
                     </x-input-label>
 
-                    <x-select name="course_id" id="courses" required>
+                    <x-select name="course_id" id="courses" class="select2" required>
                         <option></option>
 
                         @foreach ($model->courses() as $course)
@@ -26,7 +26,7 @@
                         Classe
                     </x-input-label>
 
-                    <x-select name="class_id" id="classes" required>
+                    <x-select name="class_id" id="classes" class="select2" required>
                         <option></option>
 
                         @foreach ($model->school_classes() as $class)

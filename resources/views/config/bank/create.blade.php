@@ -4,7 +4,7 @@
         <x-slot name="header">
             <h1 class="h1">
                 <i class="fa-solid fa-building-columns"></i>
-                {{ __('Bank') }}
+                {{ __('Banks') }}
             </h1>
         </x-slot>
 
@@ -23,7 +23,7 @@
         </x-slot>
 
         <x-slot name="content">
-            <x-table.default caption="Recentemente registados">
+            <x-table.light>
 
                 <x-slot name="thead">
                     <tr>
@@ -31,14 +31,17 @@
                             <i class="fa-solid fa-building-columns"></i>
                             Banco
                         </th>
+
                         <th>
                             <i class="fa-regular circle"></i>
                             Abreviatura
                         </th>
+
                         <th>
                             <i class="fa-regular fa-square"></i>
                             Nº de conta
                         </th>
+
                         <th>
                             <i class="fa-regular fa-square"></i>
                             IBAN
@@ -48,7 +51,7 @@
 
                 <x-slot name="tbody">
                     @foreach ($banks as $bank)
-                        <tr>
+                        <tr class="tbody-row">
                             <td>
                                 {{ $bank->name }}
                             </td>
@@ -68,7 +71,7 @@
                     @endforeach
                 </x-slot>
 
-            </x-table.default>
+            </x-table.light>
         </x-slot>
 
     </x-layouts.card>

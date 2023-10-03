@@ -20,7 +20,7 @@ class Bank extends Model
      * @param int $pages
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public static function items(int $pages = 6): LengthAwarePaginator
+    public static function items(int $pages = 10): LengthAwarePaginator
     {
         return self::orderBy('name', 'asc')->paginate($pages);
     }

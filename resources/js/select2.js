@@ -5,10 +5,10 @@ import select2 from "select2";
 select2();
 
 $(document).ready(function () {
-    $('#classes').select2({
+    $('.select2').select2({
         width: "100%",
         theme: "classic",
-        placeholder: "Selecione uma classe"
+        placeholder: "Selecione uma opção"
     });
 });
 
@@ -22,14 +22,6 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $('#subjects').select2({
-        width: "100%",
-        theme: "classic",
-        placeholder: "Selecione um disciplina"
-    });
-});
-
-$(document).ready(function () {
-    $('#subject-category    ').select2({
         width: "100%",
         theme: "classic",
         placeholder: "Selecione um disciplina"

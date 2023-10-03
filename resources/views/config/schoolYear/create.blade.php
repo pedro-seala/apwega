@@ -23,7 +23,7 @@
         </x-slot>
 
         <x-slot name="content">
-            <x-table.default caption="Recentemente adicionados">
+            <x-table.light>
                 <x-slot name="thead">
                     <tr>
                         <th>
@@ -45,7 +45,7 @@
 
                 <x-slot name="tbody">
                     @foreach ($schoolYears as $schoolYear)
-                        <tr>
+                        <tr class="tbody-row">
                             <td>
                                 {{ $schoolYear->year }}
                             </td>
@@ -61,7 +61,7 @@
                     @endforeach
                 </x-slot>
 
-            </x-table.default>
+            </x-table.light>
         </x-slot>
 
     </x-layouts.card>

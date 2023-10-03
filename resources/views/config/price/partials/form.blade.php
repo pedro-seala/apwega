@@ -1,6 +1,6 @@
 @csrf
 
-<div class="grid grid-cols-1 gap-4 {{ !$entity ? 'md:grid-cols-3' : 'md:grid-cols-2' }}">
+<div class="grid grid-cols-1 {{ $entity ? 'md:grid-cols-2' : 'md:grid-cols-3' }} gap-6">
     {{-- Description --}}
     <div>
         <x-input-label for="payment_description_id">
@@ -8,7 +8,9 @@
             <span class="ms-2">Descrição</span>
         </x-input-label>
 
-        <x-select name="payment_description_id" id="payment_description_id" class="select2" required>
+        <x-select name="payment_description_id"
+            id="payment_description_id" class="select2" required>
+
             @isset($price)
                 <option value="{{ $price->payment_description->id }}">
                     {{ $price->payment_description->description }}
@@ -42,7 +44,9 @@
                 <span class="ms-2">Classe</span>
             </x-input-label>
 
-            <x-select name="school_class_id" id="school_class_id" class="w-full" required>
+            <x-select name="school_class_id"
+                id="school_class_id" class="w-full py-1 px-2" required>
+
                 @isset($price)
                     <option value="{{ $price->school_class_id }}">
                         {{ $price->school_class->level }}ª Classe
@@ -77,7 +81,7 @@
             <span class="ms-2">Preço</span>
         </x-input-label>
 
-        <x-text-input type="text" name="price"
+        <x-text-input type="text" name="price" class="py-1 px-2"
             value="{{ $price->price ?? old('price') }}" required />
 
     </div>
@@ -125,7 +129,9 @@
                 <span class="ms-2">Ano letivo</span>
             </x-input-label>
 
-            <x-select name="school_year_id" id="school_year_id" class="w-full" required>
+            <x-select name="school_year_id" id="school_year_id"
+                class="w-full py-1 px-2" required>
+
                 @isset($price)
                     <option value="{{ $price->school_year->id }}">
                         {{ $price->school_year->year }}
@@ -157,7 +163,7 @@
     <input type="hidden" name="entity" value="{{ $entity }}" />
 </div>
 
-<div class="mt-6 text-end lg:mt-3">
+<div class="mt-6 text-end lg:mt-4">
     <x-cancel-button />
 
     <x-primary-button />

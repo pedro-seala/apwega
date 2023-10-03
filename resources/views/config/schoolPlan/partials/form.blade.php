@@ -6,7 +6,7 @@
             Curso
         </x-input-label>
 
-        <x-select name="course_id" id="courses" required>
+        <x-select name="course_id" id="courses" class="select2" required>
             @isset($schoolPlan)
                 <option value="{{ $schoolPlan->course->id }}" selected>
                     {{ $schoolPlan->course->name }}
@@ -37,7 +37,7 @@
             Classe
         </x-input-label>
 
-        <x-select name="school_class_id" id="classes" required>
+        <x-select name="school_class_id" id="classes" class="select2" required>
             @isset($schoolPlan)
                 <option value="{{ $schoolPlan->school_class->id }}" selected>
                     {{ $schoolPlan->school_class->level }}ª Classe
@@ -72,7 +72,7 @@
             Disciplina
         </x-input-label>
 
-        <x-select name="school_subject_id" id="subjects" required>
+        <x-select name="school_subject_id" id="subjects" class="select2" required>
             @isset($schoolPlan)
                 <option value="{{ $schoolPlan->school_subject->id }}" selected>
                     {{ $schoolPlan->school_subject->name }}
@@ -103,7 +103,7 @@
             Categoria da disciplina
         </x-input-label>
 
-        <x-select name="subject_category_id" id="subject-category" required>
+        <x-select name="subject_category_id" id="subject-category" class="select2" required>
             @isset($schoolPlan)
                 <option value="{{ $schoolPlan->subject_category->id }}" selected>
                     {{ $schoolPlan->subject_category->name }}

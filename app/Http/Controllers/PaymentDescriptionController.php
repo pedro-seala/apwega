@@ -31,7 +31,7 @@ class PaymentDescriptionController extends Controller
      */
     public function create(): View
     {
-        $paymentDescriptions = PaymentDescription::items(4);
+        $paymentDescriptions = PaymentDescription::items(6);
 
         return view('config.paymentDesc.create', compact('paymentDescriptions'));
     }

@@ -23,7 +23,7 @@
         </x-slot>
 
         <x-slot name="content">
-            <x-table.default caption="Recentemente registados">
+            <x-table.light>
 
                 <x-slot name="thead">
                     <tr>
@@ -46,7 +46,7 @@
 
                 <x-slot name="tbody">
                     @foreach ($paymentDescriptions as $paymentDescription)
-                        <tr>
+                        <tr class="tbody-row">
                             <td>
                                 {{ $paymentDescription->description }}
                             </td>
@@ -56,13 +56,13 @@
                             </td>
 
                             <td>
-                                {{ $paymentDescription->status ? 'Sim' : 'Não' }}
+                                {{ $paymentDescription->status ? 'Activo' : 'Inactivo' }}
                             </td>
                         </tr>
                     @endforeach
                 </x-slot>
 
-            </x-table.default>
+            </x-table.light>
         </x-slot>
 
     </x-layouts.card>

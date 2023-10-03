@@ -5,7 +5,7 @@
             <div class="flex justify-between">
                 <h1 class="h1">
                     <i class="fa-solid fa-graduation-cap"></i>
-                    <span>{{ __('Course') }}</span>
+                    <span>{{ __('Courses') }}</span>
                 </h1>
 
                 <x-add-btn :href="route('courses.create')" />
@@ -37,7 +37,7 @@
                                     {{ $course->name }}
                                 </td>
 
-                                <td class="space-x-4 text-center">
+                                <td class="cog">
 
                                     <x-table.edit-btn
                                         :href="route('courses.edit', $course)" />
@@ -50,7 +50,7 @@
                         @endforeach
                     </x-slot>
 
-                </x-table.default>
+                </x-table.light>
 
                 {{ $courses->links() }}
             @else

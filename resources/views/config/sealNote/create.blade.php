@@ -4,7 +4,7 @@
         <x-slot name="header">
             <h1 class="h1">
                 <i class="fa-solid fa-calendar"></i>
-                {{ __('Seal note') }}
+                {{ __('Seal notes') }}
             </h1>
         </x-slot>
 
@@ -23,7 +23,7 @@
         </x-slot>
 
         <x-slot name="content">
-            <x-table.default caption="Recentemente registados">
+            <x-table.light>
 
                 <x-slot name="thead">
                     <tr>
@@ -46,7 +46,7 @@
 
                 <x-slot name="tbody">
                     @foreach ($sealNotes as $sealNote)
-                        <tr>
+                        <tr class="tbody-row">
                             <td>
                                 {{ $sealNote->month->name }}
                             </td>
@@ -62,7 +62,7 @@
                     @endforeach
                 </x-slot>
 
-            </x-table.default>
+            </x-table.light>
         </x-slot>
 
     </x-layouts.card>

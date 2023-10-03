@@ -40,7 +40,7 @@
                 <span class="ms-2">Trimestre</span>
             </x-input-label>
 
-            <x-select id="quarter_id" name="quarter_id" class="w-full" required>
+            <x-select id="quarter_id" name="quarter_id" class="w-full py-1 px-2" required>
                 @isset($sealNote)
                     <option value="{{ $sealNote->quarter_id }}">
                         {{ $sealNote->quarter->order }}
@@ -73,7 +73,7 @@
                 <span class="ms-2">Estado</span>
             </x-input-label>
 
-            <x-select name="status" id="status" class="w-full" required>
+            <x-select name="status" id="status" class="w-full py-1 px-2" required>
                 @isset($sealNote)
                     <option value="{{ $sealNote->status }}">
                         {{ $sealNote->status ? 'Sim' : 'Não' }}
@@ -102,6 +102,6 @@
     </div>
 
     <div class="flex items-end justify-end">
-        <x-primary-button class="mb-2" />
+        <x-primary-button />
     </div>
 </div>

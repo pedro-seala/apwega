@@ -72,8 +72,8 @@
     "You're logged in!": "Você está logado!",
     "Your email address is unverified.": "Seu endereço de e-mail não foi verificado.",
 
-    "Bank": "Banco",
-    "Course": "Curso",
+    "Banks": "Bancos",
+    "Courses": "Cursos",
     "Create": "Registar",
     "Delete": "Apagar",
     "Edit": "Editar",
@@ -82,13 +82,13 @@
     "Payment description": "Descrição de pagamento",
     "Payment limit": "Prazo de mensalidade",
     "Price table": "Preços",
-    "Seal note": "Vedar nota",
+    "Seal notes": "Vedar notas",
     "Search": "Pesquisar",
     "School": "Escola",
     "School plan": "Plano curricular",
     "School year": "Ano lectivo",
-    "Subject": "Disciplina",
-    "Student": "Alunos",
+    "Subjects": "Disciplinas",
+    "Students": "Alunos",
     "Update": "Actualizar"
 
 }

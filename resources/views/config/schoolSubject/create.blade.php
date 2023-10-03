@@ -4,7 +4,7 @@
         <x-slot name="header">
             <h1 class="h1">
                 <i class="fa-solid fa-chalkboard-user"></i>
-                {{ __('Subject') }}
+                {{ __('Subjects') }}
             </h1>
         </x-slot>
 
@@ -23,7 +23,7 @@
         </x-slot>
 
         <x-slot name="content">
-            <x-table.default caption="Recentemente registadas">
+            <x-table.light>
                 <x-slot name="thead">
                     <tr>
                         <th>
@@ -45,7 +45,7 @@
 
                 <x-slot name="tbody">
                     @foreach ($schoolSubjects as $schoolSubject)
-                        <tr>
+                        <tr class="tbody-row">
                             <td>
                                 {{ $schoolSubject->name }}
                             </td>
@@ -61,7 +61,7 @@
                     @endforeach
                 </x-slot>
 
-            </x-table.default>
+            </x-table.light>
         </x-slot>
 
     </x-layouts.card>

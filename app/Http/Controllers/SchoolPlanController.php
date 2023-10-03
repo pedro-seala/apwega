@@ -51,7 +51,7 @@ class SchoolPlanController extends Controller
          * Return the specific alert
          */
         $stored = SchoolPlan::store($request);
-        alert(message: $stored['message'], type: $stored['type']);
+        alert(title: $stored['message'], type: $stored['type']);
 
         return redirect(route('school-plans.index'));
     }
@@ -90,7 +90,7 @@ class SchoolPlanController extends Controller
          * Return the specific alert
          */
         $updated = $schoolPlan->_update($request);
-        alert(message: $updated['message'], type: $updated['type']);
+        alert(title: $updated['message'], type: $updated['type']);
 
         return redirect(route('school-plans.index'));
     }

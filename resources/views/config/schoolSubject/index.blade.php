@@ -4,7 +4,7 @@
         <x-slot name="header" class="flex justify-between">
             <h1 class="h1">
                 <i class="fa-solid fa-chalkboard-user"></i>
-                <span>{{ __('Subject') }}</span>
+                <span>{{ __('Subjects') }}</span>
             </h1>
 
             <x-add-btn :href="route('school-subjects.create')" />

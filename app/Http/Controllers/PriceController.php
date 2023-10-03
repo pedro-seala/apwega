@@ -52,7 +52,7 @@ class PriceController extends Controller
     public function create(): View
     {
         $entity = $this->entity;
-        $prices = Price::items($this->entity, 4);
+        $prices = Price::items($this->entity, 6);
         $model = $this->model;
 
         return view('config.price.create', compact('entity', 'prices', 'model'));

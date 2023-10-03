@@ -188,12 +188,12 @@
 
                         <x-sidebar.dropdown-link href="{{ route('school-subjects.index') }}">
                             <i class="fa-solid fa-book"></i>
-                            {{ __('Subject') }}s
+                            {{ __('Subjects') }}
                         </x-sidebar.dropdown-link>
 
                         <x-sidebar.dropdown-link href="{{ route('courses.index') }}">
                             <i class="fa-solid fa-graduation-cap"></i>
-                            {{ __('Course') }}s
+                            {{ __('Courses') }}
                         </x-sidebar.dropdown-link>
 
                         <x-sidebar.dropdown-link href="{{ route('school-plans.index') }}">
@@ -215,7 +215,7 @@
                     <x-slot name="content">
                         <x-sidebar.dropdown-link href="{{ route('banks.index') }}">
                             <i class="fa-solid fa-building-columns"></i>
-                            {{ __('Bank') }}s
+                            {{ __('Banks') }}
                         </x-sidebar.dropdown-link>
 
                         <x-sidebar.dropdown-link href="{{ route('payment-descriptions.index') }}">
@@ -225,7 +225,7 @@
 
                         <x-sidebar.dropdown-link href="{{ route('seal-notes.index') }}">
                             <i class="fa-regular fa-calendar"></i>
-                            {{ __('Seal note') }}s
+                            {{ __('Seal notes') }}
                         </x-sidebar.dropdown-link>
 
                         <x-sidebar.dropdown-link href="/prices?entity=0">
