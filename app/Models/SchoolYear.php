@@ -31,7 +31,7 @@ class SchoolYear extends Model
      * @param int $pages
      * @return \Illuminate\Pagination\Paginator
      */
-    public static function items(int $pages = 10): Paginator
+    public static function items(int $pages = 8): Paginator
     {
         return self::orderBy('id', 'desc')
                     ->simplePaginate($pages);

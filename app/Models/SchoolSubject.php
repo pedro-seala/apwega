@@ -31,7 +31,7 @@ class SchoolSubject extends Model
      * @param int $pages
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public static function items(int $pages = 10): LengthAwarePaginator
+    public static function items(int $pages = 8): LengthAwarePaginator
     {
         return SchoolSubject::orderBy('id', 'desc')
             ->paginate($pages);
