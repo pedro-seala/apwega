@@ -10,7 +10,7 @@ import {
 
 // simple initialization with an element
 const osInstance = [
-    OverlayScrollbars(document.querySelector('#main-content')),
-    OverlayScrollbars(document.querySelector('#sidebar-nav')),
-    OverlayScrollbars(document.querySelector('#table-responsive'))
+    OverlayScrollbars(document.querySelector('#main-content'), {}),
+    OverlayScrollbars(document.querySelector('#sidebar-nav'), {}),
+    OverlayScrollbars(document.querySelector('#table-responsive'), {})
 ];
