@@ -16,13 +16,26 @@ class Student extends Model
 
 
     /**
-     * GEt all rows of this model
+     * Get all rows of this model
      * @param int $pages
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public static function items(int $pages = 10): LengthAwarePaginator
+    public static function items(int $pages = 6): LengthAwarePaginator
     {
         return self::orderBy('id', 'desc')
                 ->paginate($pages);
+    }
+
+
+    /**
+     * Get paginated rows for select2
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Pagination\LengthAwarePaginator
+     */
+    public static function search($request): LengthAwarePaginator
+    {
+        return self::select('id', 'name')
+                    ->where('name', 'like', '%' . $request->searchItem . '%')
+                    ->paginate(5, ['*'], 'page', $request->page);
     }
 }

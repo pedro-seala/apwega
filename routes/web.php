@@ -68,9 +68,10 @@ Route::resource(
 
 // Common routes
 
-Route::post(
-    'school-plans/get',
+Route::post('school-plans/get',
     [App\Http\Controllers\SchoolPlanController::class, 'get']
 )->name('school-plans.get');
+
+Route::get('search/students', [\App\View\Components\SearchStudent::class, 'search']);
 
 require __DIR__ . '/auth.php';
