@@ -6,7 +6,6 @@
 
     x-data="{
         open: false,
-
         toggle() {
             this.open = !this.open
         }
@@ -26,7 +25,7 @@
             {{ $trigger }}
         </span>
 
-        <i :class="open ? 'fa-solid fa-caret-down' : 'fa-solid fa-caret-up'"></i>
+        <i :class="open ? 'fa-solid fa-caret-up' : 'fa-solid fa-caret-down'"></i>
     </button>
 
     <div {{ $content->attributes->merge([
