@@ -1,10 +1,14 @@
 <x-app-layout>
+
+    <x-search-student>
+    </x-search-student>
+
     <x-layouts.card>
 
         <x-slot name="header" class="flex justify-between">
             <h1 class="h1">
                 <i class="fa-solid fa-user"></i>
-                <span>{{ __('Student') }}</span>
+                <span>{{ __('Students') }}</span>
             </h1>
 
             <x-add-btn :href="route('students.create')" />
@@ -12,7 +16,7 @@
 
         <x-slot name="content">
             @if ($students->count() > 0)
-                <x-table.default caption="Lista de alunos">
+                <x-table.light>
                     <x-slot name="thead">
                         <tr>
                             <th>
@@ -34,7 +38,7 @@
 
                     <x-slot name="tbody">
                         @foreach ($students as $student)
-                            <tr>
+                            <tr class="tbody-row">
                                 <td>
                                     {{ $student->processNb }}
                                 </td>
@@ -54,7 +58,7 @@
                         @endforeach
                     </x-slot>
 
-                </x-table.default>
+                </x-table.light>
 
                 {{ $students->links() }}
             @else
