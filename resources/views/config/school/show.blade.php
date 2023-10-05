@@ -7,7 +7,15 @@
                 {{ __('School') }}
             </h1>
 
-            <x-add-btn :href="route('schools.edit', $school)" />
+            <a href="{{ route('schools.edit', $school) }}"
+                class="bg-white hover:bg-slate-50 transition
+                        focus:ring-2 focus:ring-offset-2 focus:ring-bg-slate-200
+                        py-1 px-2 uppercase rounded-md text-sm font-semibold border
+                        border-slate-300 text-slate-500 shadow-sm">
+
+                <i class="fa-solid fa-edit"></i>
+                {{ __('Edit') }}
+            </a>
         </x-slot>
 
         <x-slot name="content">

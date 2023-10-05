@@ -31,6 +31,7 @@ class SearchStudent extends Component
         return Student::search($request);
     }
 
+
     /**
      * Get the view / contents that represent the component.
      */

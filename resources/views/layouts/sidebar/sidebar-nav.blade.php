@@ -14,7 +14,7 @@
                 {{-- student --}}
                 <x-sidebar.dropdown-link :href="route('students.index')">
                     <i class="fa-solid fa-user-plus"></i>
-                    Registar aluno
+                    {{ __('Create student') }}
                 </x-sidebar.dropdown-link>
 
                 {{-- naturalness --}}

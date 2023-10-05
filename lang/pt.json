@@ -75,6 +75,7 @@
     "Banks": "Bancos",
     "Courses": "Cursos",
     "Create": "Registar",
+    "Create student": "Registar aluno",
     "Delete": "Apagar",
     "Edit": "Editar",
     "Fine percentage": "Percentagem de multa",
@@ -89,6 +90,7 @@
     "School year": "Ano lectivo",
     "Subjects": "Disciplinas",
     "Students": "Alunos",
+    "Show": "Ver",
     "Update": "Actualizar"
 
 }
