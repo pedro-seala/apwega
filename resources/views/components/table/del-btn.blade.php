@@ -23,11 +23,17 @@
     </button>
 
     {{-- Modal --}}
-    <div class="fixed inset-0 z-30 flex items-center justify-center overflow-hidden bg-black bg-opacity-50"
-        x-show="showModal" x-transition x-cloak>
+    <div class="fixed inset-0 z-30 flex items-center
+                justify-center overflow-hidden bg-black bg-opacity-50"
+
+        x-show="showModal"
+        x-transition
+        x-cloak>
 
         {{-- Modal inner --}}
-        <div class="w-1/3 px-6 py-4 mx-auto text-left bg-white rounded-lg shadow-lg"
+        <div class="w-full md:w-1/2 lg:w-1/3 px-6 py-4
+                    mx-auto text-left bg-white rounded-lg shadow-lg"
+
             @click.away="toggleModal">
 
             {{-- Title / Close --}}
