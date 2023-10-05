@@ -8,12 +8,12 @@
         </span>
 
         <div class="flex-1">
-            <strong class="text-2xl block font-bold text-indigo-800">
+            <strong class="text-xl block font-bold text-indigo-800">
                 Informação
             </strong>
 
-            <p class="mt-1 text-md text-gray-700">
-                Nenhuma informação encontrada
+            <p class="mt-1 text-sm text-gray-700">
+                Nenhum dado para exibir
             </p>
 
             <div class="mt-4 flex gap-2">

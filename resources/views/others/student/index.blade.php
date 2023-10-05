@@ -1,4 +1,8 @@
 <x-app-layout>
+
+    <x-search-student>
+    </x-search-student>
+
     <x-layouts.card>
 
         <x-slot name="header" class="flex justify-between">

@@ -101,7 +101,7 @@ class Price extends Model
      * @param int $entity
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public static function items(int $entity, int $pages = 10): LengthAwarePaginator
+    public static function items(int $entity, int $pages = 8): LengthAwarePaginator
     {
         return Price::where('entity', $entity)
             ->paginate($pages);

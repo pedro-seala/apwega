@@ -40,7 +40,7 @@ class Course extends Model
      * @param mixed $pages
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public static function items($pages = 10): LengthAwarePaginator
+    public static function items($pages = 8): LengthAwarePaginator
     {
         return self::orderBy('name', 'asc')->paginate($pages);
     }
