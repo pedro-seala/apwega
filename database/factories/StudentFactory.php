@@ -17,17 +17,16 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'processNb' => fake()->numerify(),
+            'processNb' => fake()->unique()->numerify(),
             'name' => fake()->name(),
             'gender' => fake()->randomElement([0, 1]),
             'father' => fake()->name('male'),
             'mother' => fake()->name('femele'),
             'birthDate' => fake()->date(),
-            'identityCard' => fake()->numerify(),
+            'identityCard' => fake()->unique()->numerify(),
             'icIssueDate' => fake()->date(),
-            'icExpirationDate' => fake()->date(),
-            'naturalness' => fake()->country,
-            'address' => fake()->streetAddress()
+            'naturalness' => fake()->country(),
+            'address' => fake()->streetName()
         ];
     }
 }

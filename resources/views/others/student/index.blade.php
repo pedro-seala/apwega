@@ -1,7 +1,6 @@
 <x-app-layout>
 
-    <x-search-student>
-    </x-search-student>
+    <x-search-student />
 
     <x-layouts.card>
 
@@ -30,6 +29,11 @@
                             </th>
 
                             <th>
+                                <i class="fa-solid fa-calendar"></i>
+                                Idade
+                            </th>
+
+                            <th>
                                 <i class="fa-solid fa-map"></i>
                                 Morada
                             </th>
@@ -52,11 +56,18 @@
                                     {{ $student->name }}
                                 </td>
 
+                                <td class="text-center">
+                                    {{ $student->age() }}
+                                </td>
+
                                 <td>
                                     {{ $student->address }}
                                 </td>
 
                                 <td class="cog">
+                                    <x-table.show-btn
+                                        :href="route('students.show', $student)" />
+
                                     <x-table.edit-btn
                                         :href="route('students.edit', $student)" />
 

@@ -3,8 +3,8 @@
 
         <x-slot name="header">
             <h1 class="h1">
-                <i class="fa-solid fa-user"></i>
-                {{ __('Students') }}
+                <i class="fa-solid fa-user-circle"></i>
+                Dados do aluno
             </h1>
         </x-slot>
 
