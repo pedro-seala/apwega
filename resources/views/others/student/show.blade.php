@@ -15,7 +15,7 @@
         </x-slot>
 
         <x-slot name="content">
-            <div class="flex flex-col lg:flex-row mb-4 gap-x-4 gap-y-4">
+            <div class="flex flex-col lg:flex-row mb-4 gap-x-4 gap-y-5">
                 <div class="flex justify-center items-center px-2">
                     <div
                         class="flex w-52 h-52 justify-center items-center hover:bg-gray-100
