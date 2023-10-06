@@ -17,9 +17,8 @@ return new class extends Migration
             $table->string('email', 216)->nullable();
             $table->string('phone', 24)->nullable();
             $table->string('alternative_phone', 24)->nullable();
-            $table->string('province', 24)->nullable();
-            $table->string('county', 24)->nullable();
-            $table->string('town', 24)->nullable();
+            $table->foreignId('county_id')->constrained()->restrictOnDelete();
+            $table->string('address', 32)->nullable();
             $table->string('creation_document', 32)->nullable();
         });
     }

@@ -73,5 +73,6 @@ Route::post('school-plans/get',
 )->name('school-plans.get');
 
 Route::get('search/students', [\App\View\Components\SearchStudent::class, 'search']);
+Route::get('search/counties', [\App\Http\Controllers\CountyController::class, 'search']);
 
 require __DIR__ . '/auth.php';
