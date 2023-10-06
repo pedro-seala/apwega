@@ -24,7 +24,7 @@
             @include('layouts.sidebar.sidebar')
 
             {{-- main-content --}}
-            <div id="main-content" class="flex-1 overflow-y-auto"
+            <div id="main-content" class="flex-1 overflow-y-auto pb-2"
                 data-overlayscrollbars-initialize>
 
                 {{ $slot }}

@@ -6,6 +6,7 @@ use App\Models\Student;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\View\Component;
 
 class SearchStudent extends Component
@@ -26,7 +27,7 @@ class SearchStudent extends Component
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public function search(Request $request)
+    public function search(Request $request): LengthAwarePaginator
     {
         return Student::search($request);
     }

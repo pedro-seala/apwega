@@ -26,6 +26,7 @@
                         <i class="fa-solid fa-building"></i>
                         Nome
                     </x-input-label>
+
                     <x-text-input :disabled="true" value="{{ $school->name }}" />
                 </div>
 
@@ -34,6 +35,7 @@
                         <i class="fa-solid fa-envelope"></i>
                         E-mail
                     </x-input-label>
+
                     <x-text-input :disabled="true" value="{{ $school->email }}" />
                 </div>
 
@@ -42,6 +44,7 @@
                         <i class="fa-solid fa-phone"></i>
                         Telefone
                     </x-input-label>
+
                     <x-text-input :disabled="true" value="{{ $school->phone }}" />
                 </div>
 
@@ -50,6 +53,7 @@
                         <i class="fa-solid fa-phone"></i>
                         Telefone alternativo
                     </x-input-label>
+
                     <x-text-input :disabled="true" value="{{ $school->alternative_phone }}" />
                 </div>
 
@@ -58,7 +62,10 @@
                         <i class="fa-solid fa-map"></i>
                         Província
                     </x-input-label>
-                    <x-text-input :disabled="true" value="{{ $school->province }}" />
+
+                    <x-text-input :disabled="true"
+                        value="{{ $school->county->province->name }}" />
+
                 </div>
 
                 <div>
@@ -66,15 +73,17 @@
                         <i class="fa-solid fa-map"></i>
                         Município
                     </x-input-label>
-                    <x-text-input :disabled="true" value="{{ $school->county }}" />
+
+                    <x-text-input :disabled="true" value="{{ $school->county->name }}" />
                 </div>
 
                 <div>
-                    <x-input-label for="town">
+                    <x-input-label for="address">
                         <i class="fa-solid fa-map"></i>
                         Bairro
                     </x-input-label>
-                    <x-text-input :disabled="true" value="{{ $school->town }}" />
+
+                    <x-text-input :disabled="true" value="{{ $school->address }}" />
                 </div>
 
                 <div>
@@ -82,6 +91,7 @@
                         <i class="fa-solid fa-file"></i>
                         Decreto de criação
                     </x-input-label>
+
                     <x-text-input :disabled="true" value="{{ $school->creation_document }}" />
                 </div>
             </div>

@@ -17,13 +17,12 @@ class SchoolFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'              => fake()->company(),
-            'email'             => fake()->companyEmail(),
-            'phone'             => fake()->phoneNumber(),
+            'name' => fake()->company(),
+            'email' => fake()->companyEmail(),
+            'phone' => fake()->phoneNumber(),
             'alternative_phone' => fake()->phoneNumber(),
-            'province'          => fake()->latitude(),
-            'county'            => fake()->century(),
-            'town'              => fake()->city()
+            'county_id' => fake()->numberBetween(1, 32),
+            'address' => fake()->streetName()
         ];
     }
 }
