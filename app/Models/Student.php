@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 
@@ -134,10 +135,30 @@ class Student extends Model
     }
 
 
-    public function age() {
+    /**
+     * Set a age of student
+     * @return int|null
+     */
+    public function age(): int|null
+    {
         $date = self::find($this->id)->birthDate;
-        $date = explode('-', $date);
 
-        return date('Y') - $date[0];
+        if ($date) {
+            $date = explode('-', $date);
+
+            return date('Y') - $date[0];
+        } else {
+            return null;
+        }
+    }
+
+
+    /**
+     * Get the county of school
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function county(): BelongsTo
+    {
+        return $this->belongsTo(County::class);
     }
 }

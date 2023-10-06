@@ -15,13 +15,15 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Edmilson',
             'email' => '4an1onio@gmail.com',
-            'password' => bcrypt('1123581321')
+            'password' => bcrypt('11235813')
         ]);
 
         $this->call([
             MonthSeeder::class,
             SchoolClassSeeder::class,
             QuarterSeeder::class,
+            ProvinceSeeder::class,
+            CountySeeder::class,
             SchoolSeeder::class,
             SchoolYearSeeder::class,
             SchoolSubjectSeeder::class,
@@ -34,7 +36,7 @@ class DatabaseSeeder extends Seeder
             PriceSeeder::class,
             FinePercentageSeeder::class,
             LastMonthPaymentSeeder::class,
-            StudentSeeder::class
+            StudentSeeder::class,
         ]);
     }
 }

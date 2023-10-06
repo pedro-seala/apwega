@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class School extends Model
 {
@@ -34,12 +35,14 @@ class School extends Model
         if (self::create($request->all())) {
             return [
                 'status' => true,
+                'title' => 'Sucesso',
                 'message' => 'Escola registada',
                 'type' => 'success'
             ];
         } else {
             return [
                 'status' => false,
+                'title' => 'Falha',
                 'message' => 'Falha ao registar',
                 'type' => 'error'
             ];
@@ -57,12 +60,14 @@ class School extends Model
         if ($this->update($request->all())) {
             return [
                 'status' => true,
+                'title' => 'Sucesso',
                 'message' => 'Dados actualizados',
                 'type' => 'success'
             ];
         } else {
             return [
                 'status' => false,
+                'title' => 'Falha',
                 'message' => 'Falha ao actualizar',
                 'type' => 'error'
             ];
@@ -89,5 +94,15 @@ class School extends Model
                 'type' => 'error'
             ];
         }
+    }
+
+
+    /**
+     * Get the county of school
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function county(): BelongsTo
+    {
+        return $this->belongsTo(County::class);
     }
 }

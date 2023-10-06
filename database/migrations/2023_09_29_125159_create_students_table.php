@@ -21,8 +21,10 @@ return new class extends Migration
             $table->date('birthDate');
             $table->string('identityCard', 14)->unique('idx_student_ic');
             $table->date('icIssueDate')->nullable();
-            $table->string('naturalness', 32)->nullable();
+            $table->foreignId('county_id')->constrained()->restrictOnDelete();
             $table->string('address', 32)->nullable();
+            $table->string('phone', 24)->nullable();
+            $table->string('alternative_phone', 24)->nullable();
         });
     }
 

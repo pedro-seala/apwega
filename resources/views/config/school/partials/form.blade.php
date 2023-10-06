@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-4 gap-y-8 gap-x-6">
     @csrf
 
-    <div class="col-span-2">
+    <div class="lg:col-span-2">
         <x-input-label for="name">
             <i class="fa-solid fa-building"></i>
             Nome
@@ -48,28 +48,14 @@
 
     </div>
 
-    <div>
-        <x-input-label for="province">
+    <div class="flex flex-col justify-center">
+        <x-input-label for="counties">
             <i class="fa-solid fa-map"></i>
-            Província
+            Município - {{ $school->county->name }}
         </x-input-label>
 
-        <x-text-input type="text" name="province"
-            value="{{ $school->province ?? old('province') }}" id="province"
-            maxlength="24" />
-
-    </div>
-
-    <div>
-        <x-input-label for="county">
-            <i class="fa-solid fa-map"></i>
-            Município
-        </x-input-label>
-
-        <x-text-input type="text" name="county"
-            value="{{ $school->county ?? old('county') }}" id="county"
-            maxlength="24" />
-
+        <x-select name="county_id" id="counties" >
+        </x-select>
     </div>
 
     <div>
@@ -78,8 +64,8 @@
             Bairro
         </x-input-label>
 
-        <x-text-input name="town"
-            value="{{ $school->town ?? old('town') }}"
+        <x-text-input name="address"
+            value="{{ $school->address ?? old('address') }}"
             id="town" maxlength="32" />
 
     </div>

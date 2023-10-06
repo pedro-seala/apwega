@@ -26,7 +26,7 @@ class SchoolController extends Controller
          * After evaluate the model operations
          */
         if ($request->type) {
-            alert(message: $request->message, type: $request->type);
+            alert($request->title, $request->message, $request->type);
         }
 
         $school = School::item();

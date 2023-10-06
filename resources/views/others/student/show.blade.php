@@ -15,11 +15,11 @@
         </x-slot>
 
         <x-slot name="content">
-            <div class="flex flex-col lg:flex-row mb-6 gap-x-4 gap-y-6">
+            <div class="flex flex-col lg:flex-row mb-4 gap-x-4 gap-y-5">
                 <div class="flex justify-center items-center px-2">
                     <div
                         class="flex w-52 h-52 justify-center items-center hover:bg-gray-100
-                                rounded-full bg-gray-50 border shadow-md cursor-pointer transition">
+                                rounded-full bg-gray-50 border shadow-md transition">
 
                         <div
                             class="flex w-32 h-32 justify-center items-center
@@ -41,7 +41,7 @@
                     <div>
                         <x-input-label for="name" value="Nome" />
 
-                        <x-text-input type="text" id="name" :value="$student->name" :disabled="true" required />
+                        <x-text-input type="text" id="name" :value="$student->name" :disabled="true" />
 
                     </div>
 
@@ -62,14 +62,14 @@
                     <div>
                         <x-input-label for="birthDate" value="Data de nascimento" />
 
-                        <x-text-input type="date" id="birthDate" :value="$student->birthDate" :disabled="true" required />
+                        <x-text-input type="date" id="birthDate" :value="$student->birthDate" :disabled="true"/>
 
                     </div>
 
                     <div>
-                        <x-input-label for="naturalness" value="Naturalidade" />
+                        <x-input-label for="county" value="Naturalidade" />
 
-                        <x-text-input type="text" id="naturalness" :value="$student->naturalness" :disabled="true" />
+                        <x-text-input type="text" id="county" :value="$student->county->name" :disabled="true" />
 
                     </div>
 
@@ -86,7 +86,7 @@
                     <div>
                         <x-input-label for="identityCard" value="BI/Cédula" />
 
-                        <x-text-input type="text" id="identityCard" :value="$student->identityCard" :disabled="true" required />
+                        <x-text-input type="text" id="identityCard" :value="$student->identityCard" :disabled="true" />
 
                     </div>
 
@@ -101,6 +101,21 @@
                         <x-input-label for="addres" value="Morada" />
 
                         <x-text-input type="text" id="addres" :value="$student->address" :disabled="true" />
+
+                    </div>
+
+                    <div>
+                        <x-input-label for="phone" value="Telemóvel" />
+
+                        <x-text-input type="tel" id="phone" :value="$student->phone" :disabled="true" />
+
+                    </div>
+
+                    <div>
+                        <x-input-label for="alternative_phone" value="Telemóvel alternativo" />
+
+                        <x-text-input type="tel" id="alternative_phone"
+                            :value="$student->alternative_phone" :disabled="true" />
 
                     </div>
                 </div>

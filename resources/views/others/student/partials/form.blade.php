@@ -1,7 +1,7 @@
 <div class="flex flex-col">
     @csrf
 
-    <div class="flex flex-col lg:flex-row mb-6 gap-x-4 gap-y-6">
+    <div class="flex flex-col lg:flex-row mb-4 gap-x-4 gap-y-5">
         <div class="flex justify-center items-center px-2">
             <div
                 class="flex w-52 h-52 justify-center items-center hover:bg-gray-100
@@ -67,14 +67,17 @@
 
             </div>
 
-            <div>
-                <x-input-label for="naturalness" value="Naturalidade" />
+            <div class="flex flex-col justify-center">
+                <x-input-label for="counties">
+                    <i class="fa-solid fa-map"></i>
+                    Municipio de naturalidade:
+                    <span class="text-gray-600">
+                        {{$student->county->name ?? '' }}
+                    </span>
+                </x-input-label>
 
-                <x-text-input type="text" name="naturalness" id="naturalness"
-                    :value="$student->naturalness ?? old('naturalness')" maxLength="32" />
-
-                <x-input-error :messages="$errors->get('naturalness')" class="mt-2" />
-
+                <x-select name="county_id" id="counties" >
+                </x-select>
             </div>
 
             <div>
@@ -137,6 +140,26 @@
                     :value="$student->address ?? old('address')" maxLength="32" />
 
                 <x-input-error :messages="$errors->get('address')" class="mt-2" />
+
+            </div>
+
+            <div>
+                <x-input-label for="phone" value="Telemóvel" />
+
+                <x-text-input type="tel" name="phone" id="phone"
+                    :value="$student->phone ?? old('phone')" maxLength="24" />
+
+                <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+
+            </div>
+
+            <div>
+                <x-input-label for="alternative_phone" value="Telemóvel alternativo" />
+
+                <x-text-input type="tel" name="alternative_phone" id="alternative_phone"
+                    :value="$student->alternative_phone ?? old('alternative_phone')" maxLength="24" />
+
+                <x-input-error :messages="$errors->get('alternative_phone')" class="mt-2" />
 
             </div>
 
