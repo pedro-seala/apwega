@@ -25,7 +25,7 @@ class Student extends Model
     public static function items(int $pages = 6): Paginator
     {
         return self::orderBy('id', 'desc')
-                ->simplePaginate($pages);
+            ->simplePaginate($pages);
     }
 
 
@@ -37,8 +37,8 @@ class Student extends Model
     public static function search($request): LengthAwarePaginator
     {
         return self::select('id', 'name')
-                    ->where('name', 'like', '%' . $request->searchItem . '%')
-                    ->paginate(5, ['*'], 'page', $request->page);
+            ->where('name', 'like', '%' . $request->searchItem . '%')
+            ->paginate(5, ['*'], 'page', $request->page);
     }
 
 
@@ -118,7 +118,7 @@ class Student extends Model
     public static function take(int $id): array
     {
         $student = self::find($id);
-        if($student) {
+        if ($student) {
             return [
                 'status' => true,
                 'student' => $student,
@@ -141,7 +141,7 @@ class Student extends Model
      */
     public function age(): int|null
     {
-        $date = self::find($this->id)->birthDate;
+        $date = $this->birthDate;
 
         if ($date) {
             $date = explode('-', $date);
@@ -160,5 +160,23 @@ class Student extends Model
     public function county(): BelongsTo
     {
         return $this->belongsTo(County::class);
+    }
+
+
+    /**
+     * Format date to dd-mm-yyyy
+     * @param string $date
+     * @return string
+     */
+    public function dateFormat(string $date): string
+    {
+        if ($date) {
+            $date = explode('-', $date);
+            $date = implode('/', [$date[2], $date[1], $date[0]]);
+
+            return $date;
+        } else {
+            return null;
+        }
     }
 }
