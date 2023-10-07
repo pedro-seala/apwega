@@ -68,7 +68,7 @@
                     </div>
 
                     <div>
-                        <x-input-label for="county" value="Municíptio de naturalidade" />
+                        <x-input-label for="county" value="Município de naturalidade" />
 
                         <x-text-input type="text" id="county"
                             :value="$student->county->name" :disabled="true" />

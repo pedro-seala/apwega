@@ -70,7 +70,7 @@
             <div class="flex flex-col justify-center">
                 <x-input-label for="counties">
                     <i class="fa-solid fa-map"></i>
-                    Municipio de naturalidade:
+                    Município de naturalidade:
                     <span class="text-gray-600">
                         {{$student->county->name ?? '' }}
                     </span>
