@@ -1,27 +1,28 @@
-@extends('pdf.layout')
+<x-pdf-layout>
 
-@section('title', $student->name)
+    <x-slot name="customStyles">
+        <style>
+            .photo {
+                color: #808080;
+                font-size: 4rem;
+                text-align: center;
 
-@section('custom-styles')
-    <style>
-        .photo {
-            color: #808080;
-            font-size: 4rem;
-            text-align: center;
+                width: 128px;
+                height: 128px;
+                padding: 1rem;
+                margin: 0 auto;
 
-            width: 128px;
-            height: 128px;
-            padding: 1rem;
-            margin: 0 auto;
+                border-radius: 100%;
 
-            border-radius: 100%;
+                background-color: #ddd;
+            }
 
-            background-color: #ddd;
-        }
-    </style>
-@endsection
+            small {
+                font-size: x-small;
+            }
+        </style>
+    </x-slot>
 
-@section('content')
     {{-- Profile photo --}}
     <div>
         <div class="photo">
@@ -199,8 +200,9 @@
     <div class="fixed-bottom bg-light p-2 rounded border">
         <span class="d-block text-right text-secondary">
             <small>
-                Impresso em: {{ date("d-m-Y H:i:s") }}
+                <b>Impresso em: </b>{{ date("d-m-Y H:i:s") }}
             </small>
         </span>
     </div>
-@endsection
+
+</x-pdf-layout>
