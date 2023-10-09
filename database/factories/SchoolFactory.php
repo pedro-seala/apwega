@@ -21,7 +21,7 @@ class SchoolFactory extends Factory
             'email' => fake()->companyEmail(),
             'phone' => fake()->phoneNumber(),
             'alternative_phone' => fake()->phoneNumber(),
-            'county_id' => fake()->numberBetween(1, 32),
+            'county_id' => 15,
             'address' => fake()->streetName()
         ];
     }
