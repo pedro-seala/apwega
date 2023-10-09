@@ -2,8 +2,6 @@
 
 ## School Management System
 
-This is a prototype school management system
-
 ### How to install
 
 1. Download or clone this repository
