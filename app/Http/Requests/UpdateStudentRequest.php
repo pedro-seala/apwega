@@ -22,15 +22,15 @@ class UpdateStudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'proccessNb' => 'nullable|numeric|integer',
+            'proccessNb' => 'nullable|numeric',
             'name' => 'required|string|max:64',
-            'gender' => 'required|numeric|integer',
+            'gender' => 'required|integer',
             'father' => 'nullable|string|max:64',
             'mother' => 'nullable|string|max:64',
             'birthDate' => 'required|date',
             'identityCard' => 'required|max:14',
             'icIssueDate' => 'nullable|date',
-            'naturalness' => 'nullable|max:32',
+            'county_id' => 'required|integer',
             'address' => 'nullable|max:32'
         ];
     }
@@ -45,7 +45,7 @@ class UpdateStudentRequest extends FormRequest
             'birthDate' => 'data de nascimento',
             'identityCard' => 'identificação',
             'icIssueDate' => 'data de emissão',
-            'naturalness' => 'naturalidade',
+            'county_id' => 'município',
             'address' => 'morada'
         ];
     }

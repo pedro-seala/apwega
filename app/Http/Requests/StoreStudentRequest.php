@@ -24,13 +24,13 @@ class StoreStudentRequest extends FormRequest
         return [
             'processNb' => 'nullable|numeric|unique:students,processNb',
             'name' => 'required|string|max:64|unique:students,name',
-            'gender' => 'required|numeric|integer',
+            'gender' => 'required|integer',
             'father' => 'nullable|string|max:64',
             'mother' => 'nullable|string|max:64',
             'birthDate' => 'required|date',
             'identityCard' => 'required|max:14|unique:students,identityCard',
             'icIssueDate' => 'nullable|date',
-            'naturalness' => 'nullable|max:32',
+            'county_id' => 'required|integer',
             'address' => 'nullable|max:32'
         ];
     }
@@ -45,7 +45,7 @@ class StoreStudentRequest extends FormRequest
             'birthDate' => 'data de nascimento',
             'identityCard' => 'identificação',
             'icIssueDate' => 'data de emissão',
-            'naturalness' => 'naturalidade',
+            'county_id' => 'município',
             'address' => 'morada'
         ];
     }
