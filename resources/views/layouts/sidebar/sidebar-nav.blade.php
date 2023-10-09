@@ -2,7 +2,7 @@
     class="flex-1 p-2 pb-8 overflow-y-auto bg-white border rounded-md shadow-lg"
     data-overlayscrollbars-initialize x-show="open" x-transition>
 
-    <div class="flex flex-col gap-y-4">
+    <div class="flex flex-col gap-y-6">
         {{-- administrative area --}}
         <x-sidebar.dropdown>
             <x-slot name="trigger">
@@ -18,13 +18,13 @@
                 </x-sidebar.dropdown-link>
 
                 {{-- naturalness --}}
-                <x-sidebar.dropdown-link>
+                <x-sidebar.dropdown-link href="{{ route('counties.index') }}">
                     <i class="fa-solid fa-map"></i>
                     Registar naturalidade
                 </x-sidebar.dropdown-link>
 
                 {{-- school enrollment --}}
-                <x-sidebar.dropdown class="m-1 border-0">
+                <x-sidebar.dropdown class="p-1 border-0">
                     <x-slot name="trigger">
                         <i class="fa-solid fa-inbox"></i>
                         Matrícula
@@ -47,7 +47,7 @@
                         </x-sidebar.dropdown-link>
 
                         {{-- receipts --}}
-                        <x-sidebar.dropdown class="m-1 border-0">
+                        <x-sidebar.dropdown class="p-1 border-0">
                             <x-slot name="trigger">
                                 <i class="fa-solid fa-file"></i>
                                 Imprimir recibo
@@ -80,7 +80,7 @@
 
             <x-slot name="content">
                 {{-- classrooms --}}
-                <x-sidebar.dropdown class="m-1 border-0">
+                <x-sidebar.dropdown class="p-1 border-0">
                     <x-slot name="trigger">
                         <i class="fa-solid fa-inbox"></i>
                         Turmas
@@ -103,7 +103,7 @@
                         </x-sidebar.dropdown-link>
 
                         {{-- change classroom student --}}
-                        <x-sidebar.dropdown class="m-1 border-0">
+                        <x-sidebar.dropdown class="p-1 border-0">
 
                             <x-slot name="trigger">
                                 <i class="fa-solid fa-edit"></i>

@@ -13,6 +13,31 @@ class ProvinceSeeder extends Seeder
      */
     public function run(): void
     {
-        Province::factory(18)->create();
+        $provinces = [
+            'Bengo',
+            'Benguela',
+            'Bié',
+            'Cabinda',
+            'Cuando-Cubango',
+            'Cuanza Norte',
+            'Cuanza Sul',
+            'Cunene',
+            'Huambo',
+            'Huíla',
+            'Luanda',
+            'Lunda Norte',
+            'Lunda Sul',
+            'Malanje',
+            'Moxico',
+            'Namibe',
+            'Uíge',
+            'Zaire'
+        ];
+
+        foreach ($provinces as $province) {
+            Province::create([
+                'name' => $province
+            ]);
+        }
     }
 }

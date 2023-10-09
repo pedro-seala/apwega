@@ -25,7 +25,7 @@ class StudentFactory extends Factory
             'birthDate' => fake()->date(),
             'identityCard' => fake()->unique()->numerify(),
             'icIssueDate' => fake()->date(),
-            'county_id' => fake()->numberBetween(1, 32),
+            'county_id' => fake()->numberBetween(1, 28),
             'address' => fake()->streetName(),
             'phone' => fake()->phoneNumber(),
             'alternative_phone' => fake()->phoneNumber()

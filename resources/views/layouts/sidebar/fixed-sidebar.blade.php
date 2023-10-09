@@ -1,4 +1,4 @@
-<div class="flex flex-col px-2 gap-y-8">
+<div class="flex flex-col px-2 gap-y-10">
     {{-- Hamburguer --}}
     <x-sidebar.btn x-on:click="toggle()">
         <i class="fa-solid fa-bars fa-xl"></i>

@@ -42,7 +42,8 @@ Route::resources(
         'payment-descriptions'  => App\Http\Controllers\PaymentDescriptionController::class,
         'seal-notes'            => App\Http\Controllers\SealNoteController::class,
         'prices'                => App\Http\Controllers\PriceController::class,
-        'students'              => App\Http\Controllers\StudentController::class
+        'students'              => App\Http\Controllers\StudentController::class,
+        'counties'              => App\Http\Controllers\CountyController::class
     ],
 );
 

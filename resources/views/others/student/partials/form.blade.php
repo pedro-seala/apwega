@@ -77,7 +77,16 @@
                 </x-input-label>
 
                 <x-select name="county_id" id="counties" >
+                    @isset($student)
+                        <option value="{{ $student->county_id }}" selected>
+                        </option>
+                    @else
+                        <option value="{{ old('county_id') }}" selected>
+                        </option>
+                    @endisset
                 </x-select>
+
+                <x-input-error :messages="$errors->get('county_id')" class="mt-2" />
             </div>
 
             <div>
@@ -134,9 +143,9 @@
             </div>
 
             <div>
-                <x-input-label for="addres" value="Morada" />
+                <x-input-label for="address" value="Morada" />
 
-                <x-text-input type="text" name="address" id="addres"
+                <x-text-input type="text" name="address" id="address"
                     :value="$student->address ?? old('address')" maxLength="32" />
 
                 <x-input-error :messages="$errors->get('address')" class="mt-2" />
