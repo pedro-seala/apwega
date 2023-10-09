@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class County extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $guarded = [];
 
     public function province(): BelongsTo
     {
@@ -51,11 +54,11 @@ class County extends Model
     /**
      * Get all rows
      * @param int $pages
-     * @return \Illuminate\Pagination\LengthAwarePaginator
+     * @return \Illuminate\Pagination\Paginator
      */
-    public static function items(int $pages = 8)
+    public static function items(int $pages = 8): Paginator
     {
-        return self::paginate($pages);
+        return self::simplePaginate($pages);
     }
 
 

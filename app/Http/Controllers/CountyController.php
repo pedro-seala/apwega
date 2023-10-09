@@ -10,6 +10,14 @@ use Illuminate\View\View;
 
 class CountyController extends Controller
 {
+    protected $model;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->model = new County;
+    }
+
     /**
      * * Get paginated rows for select2
      * @param \Illuminate\Http\Request $request
@@ -38,7 +46,7 @@ class CountyController extends Controller
     public function create(): View
     {
         $counties = County::items(6);
-        $provinces = County::provinces();
+        $provinces = $this->model->provinces();
 
         return view('config.county.create', compact('counties', 'provinces'));
     }
@@ -50,7 +58,14 @@ class CountyController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        //
+        /**
+         * Evaluate the model operation
+         * Return the specific alert
+         */
+        $stored = County::store($request);
+        toast($stored['message'], $stored['type']);
+
+        return redirect(route('counties.index'));
     }
 
     /**
@@ -60,7 +75,9 @@ class CountyController extends Controller
      */
     public function edit(County $county): View
     {
-        //
+        $provinces = $this->model->provinces();
+
+        return view('config.county.edit', compact('county', 'provinces'));
     }
 
     /**
@@ -71,7 +88,14 @@ class CountyController extends Controller
      */
     public function update(Request $request, County $county): RedirectResponse
     {
-        //
+        /**
+         * Evaluate the model operation
+         * Return the specific alert
+         */
+        $updated = $county->_update($request);
+        toast($updated['message'], $updated['type']);
+
+        return redirect(route('counties.index'));
     }
 
     /**
@@ -81,6 +105,13 @@ class CountyController extends Controller
      */
     public function destroy(County $county): RedirectResponse
     {
-        //
+        /**
+         * Evaluate the model operation
+         * Return the specific alert
+         */
+        $destroyed = $county->_destroy();
+        toast($destroyed['message'], $destroyed['type']);
+
+        return redirect(route('counties.index'));
     }
 }
