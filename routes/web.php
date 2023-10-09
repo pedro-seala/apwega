@@ -76,4 +76,7 @@ Route::post('school-plans/get',
 Route::get('search/students', [\App\View\Components\SearchStudent::class, 'search']);
 Route::get('search/counties', [\App\Http\Controllers\CountyController::class, 'search']);
 
+Route::get('pdf/student/{student}', [\App\Http\Controllers\PdfController::class, 'student'])
+    ->name('pdf.student');
+
 require __DIR__ . '/auth.php';

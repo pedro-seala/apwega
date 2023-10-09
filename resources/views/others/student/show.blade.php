@@ -8,9 +8,12 @@
             </h1>
 
             <div class="space-x-4 my-2 md:my-0">
+                <x-print-btn href="{{ route('pdf.student', $student) }}" />
+
                 <x-table.edit-btn :href="route('students.edit', $student)" />
 
                 <x-table.del-btn :action="route('students.destroy', $student)" />
+
             </div>
         </x-slot>
 
@@ -60,9 +63,9 @@
                     </div>
 
                     <div>
-                        <x-input-label for="county" value="Província de naturalidade" />
+                        <x-input-label for="province" value="Província de naturalidade" />
 
-                        <x-text-input type="text" id="county"
+                        <x-text-input type="text" id="province"
                             :value="$student->county->province->name" :disabled="true" />
 
                     </div>
