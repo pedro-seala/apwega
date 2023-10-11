@@ -118,4 +118,13 @@ class SchoolYear extends Model
         return $date;
     }
 
+
+    /**
+     * get all classes created by the relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function created_classes(): HasMany
+    {
+        return $this->hasMany(CreatedClass::class);
+    }
 }
