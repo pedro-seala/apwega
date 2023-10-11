@@ -2,47 +2,58 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class Course extends Model
+class CreatedClass extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
     protected $guarded = [];
 
-
-    /**
-     * Get corresponding school plans in School Plan model
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function school_plans(): HasMany
-    {
-        return $this->hasMany(SchoolPlan::class);
-    }
+    public $timestamps = false;
 
 
     /**
-     * Get corresponding prices in Price model
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function prices(): HasMany
-    {
-        return $this->hasMany(Price::class);
-    }
-
-
-    /**
-     * Get the rows in this model
-     * @param mixed $pages
+     * Get all records
+     * @param int $pages
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public static function items($pages = 8): LengthAwarePaginator
+    public static function items(int $pages = 8): LengthAwarePaginator
     {
-        return self::orderBy('name', 'asc')->paginate($pages);
+        return self::orderBy('id', 'desc')->paginate($pages);
+    }
+
+
+    /**
+     * Get all school years from School Year model
+     */
+    public static function current_year()
+    {
+        return SchoolYear::orderBy('id', 'desc')->first();
+    }
+
+
+    /**
+     * Get all classes in Classe model
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    static function school_classes(): Collection
+    {
+        return SchoolClass::orderBy('level', 'asc')->get();
+    }
+
+
+    /**
+     * Get all courses in Course model
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    static function courses(): Collection
+    {
+        return Course::orderBy('name', 'asc')->get();
     }
 
 
@@ -56,7 +67,7 @@ class Course extends Model
         if (self::create($request->all())) {
             return [
                 'status' => true,
-                'message' => 'Curso registado',
+                'message' => 'Turma registada',
                 'type' => 'success'
             ];
         } else {
@@ -79,7 +90,7 @@ class Course extends Model
         if ($this->update(attributes: $request->all())) {
             return [
                 'status' => true,
-                'message' => 'Curso actualizado',
+                'message' => 'Dados actualizados',
                 'type' => 'success'
             ];
         } else {
@@ -101,7 +112,7 @@ class Course extends Model
         if ($this->delete()) {
             return [
                 'status' => true,
-                'message' => 'Curso eliminado',
+                'message' => 'Turma eliminada',
                 'type' => 'success'
             ];
         } else {
@@ -115,11 +126,31 @@ class Course extends Model
 
 
     /**
-     * get all classes created by the relationship
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * get specific school year by the relationship
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function created_classes(): HasMany
+    public function school_year(): BelongsTo
     {
-        return $this->hasMany(CreatedClass::class);
+        return $this->belongsTo(SchoolYear::class);
+    }
+
+
+    /**
+     * get specific school class by the relationship
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function school_class(): BelongsTo
+    {
+        return $this->belongsTo(SchoolClass::class);
+    }
+
+
+    /**
+     * get specific course by the relationship
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function course(): BelongsTo
+    {
+        return $this->belongsTo(Course::class);
     }
 }

@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             FinePercentageSeeder::class,
             LastMonthPaymentSeeder::class,
             StudentSeeder::class,
+            CreatedClassSeeder::class
         ]);
     }
 }

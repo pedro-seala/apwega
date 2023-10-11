@@ -87,7 +87,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-sidebar.dropdown-link>
+                        <x-sidebar.dropdown-link href="{{ route('created-classes.index') }}">
                             <i class="fa-solid fa-plus-circle"></i>
                             Criar turma
                         </x-sidebar.dropdown-link>

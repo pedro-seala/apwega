@@ -40,4 +40,14 @@ class SchoolClass extends Model
     {
         return $this->hasMany(LastMonthPayment::class, 'school_class_id');
     }
+
+
+    /**
+     * get all classes created by the relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function created_classes(): HasMany
+    {
+        return $this->hasMany(CreatedClass::class);
+    }
 }
